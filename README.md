@@ -51,9 +51,12 @@ Start the country-information-app
 
 ## Documentation
 
-[Documentation](https://country-information-app-api-doc.surge.sh)
+- [Documentation](https://country-information-app-api-doc.surge.sh)
 
-[API](https://simple-banking-application.herokuapp.com/)
+- [API](https://country-information-application.herokuapp.com/)
+
+- Check the resources/docs folder for other documentation
+
 
 ## Tech Stack
 
