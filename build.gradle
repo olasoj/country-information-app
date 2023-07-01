@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagementPluginVersion}"
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility =  JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.9'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.9'
+
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+	implementation 'com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20200713.1'
+	implementation 'org.jsoup:jsoup:1.14.1'
+
+	// https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava
+	implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
