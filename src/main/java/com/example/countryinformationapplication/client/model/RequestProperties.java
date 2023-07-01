@@ -1,4 +1,4 @@
-package com.example.countryinformationapplication.client.model.internal.valueobject;
+package com.example.countryinformationapplication.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -9,10 +9,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
+import java.net.URI;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestProperties<T extends Serializable> implements Serializable {
-    private final String url;
+    private final URI url;
     private final HttpMethod httpMethod;
     private final HttpHeaders httpHeaders;
     private final T body;
@@ -26,20 +27,11 @@ public class RequestProperties<T extends Serializable> implements Serializable {
         this.body = requestPropertiesBuilder.body;
     }
 
-
     public static <T extends Serializable> RequestPropertiesBuilder<T> builder() {
         return new RequestPropertiesBuilder<>();
     }
 
-    public static RequestProperties<Serializable> initGetRequestProperties(String uri) {
-        return RequestProperties.builder()
-                .uri(uri)
-                .httpHeaders(new HttpHeaders())
-                .httpMethod(HttpMethod.GET)
-                .build();
-    }
-
-    public String getUrl() {
+    public URI getUrl() {
         return url;
     }
 
@@ -70,8 +62,10 @@ public class RequestProperties<T extends Serializable> implements Serializable {
         if (obj == this)
             return true;
 
-        if (!(obj instanceof final RequestProperties<?> otherRequestProperties))
+        if (!(obj instanceof RequestProperties<?>))
             return false;
+
+        RequestProperties<?> otherRequestProperties = (RequestProperties<?>) obj;
 
         return new EqualsBuilder()
                 .append(this.url, otherRequestProperties.url)
@@ -92,12 +86,12 @@ public class RequestProperties<T extends Serializable> implements Serializable {
     }
 
     public static class RequestPropertiesBuilder<B extends Serializable> {
-        private String url;
+        private URI url;
         private HttpMethod httpMethod;
         private HttpHeaders httpHeaders;
         private B body;
 
-        public RequestPropertiesBuilder<B> uri(String url) {
+        public RequestPropertiesBuilder<B> uri(URI url) {
             this.url = url;
             return this;
         }

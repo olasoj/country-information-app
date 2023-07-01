@@ -1,10 +1,10 @@
 package com.example.countryinformationapplication.client.service.library;
 
-import com.example.countryinformationapplication.client.exception.CountryInformationApplicationHttpException;
 import com.example.countryinformationapplication.client.exception.CountryInformationApplicationHttpResourceTimeoutException;
-import com.example.countryinformationapplication.client.model.internal.valueobject.RequestProperties;
-import com.example.countryinformationapplication.client.model.internal.valueobject.ResponseProperties;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.countryinformationapplication.client.exception.CountryInformationApplicationResponseStatusException;
+import com.example.countryinformationapplication.client.model.RequestProperties;
+import com.example.countryinformationapplication.client.model.ResponseProperties;
+import com.example.countryinformationapplication.util.JacksonUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.Serializable;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 @Service
 public class RestTemplateHttpLibrary implements HttpLibrary {
@@ -37,13 +36,13 @@ public class RestTemplateHttpLibrary implements HttpLibrary {
     }
 
     @Override
-    public <T extends Serializable, U> ResponseProperties<U> exchange(RequestProperties<T> build, Class<U> responseClassType) throws CountryInformationApplicationHttpException, CountryInformationApplicationHttpResourceTimeoutException {
+    public <T extends Serializable, U> ResponseProperties<U> exchange(RequestProperties<T> build, Class<U> responseClassType) {
         try {
             ResponseEntity<String> responseEntity = exchange(build);
             return parseResponse(responseClassType, responseEntity);
         } catch (RestClientResponseException restClientResponseException) {
             ResponseProperties<String> responseProperties = toResponseProperties(restClientResponseException);
-            throw new CountryInformationApplicationHttpException(restClientResponseException.getMessage(), restClientResponseException.getCause(), responseProperties);
+            throw new CountryInformationApplicationResponseStatusException(restClientResponseException.getMessage(), restClientResponseException.getCause(), responseProperties);
         } catch (ResourceAccessException resourceAccessException) {
             throw new CountryInformationApplicationHttpResourceTimeoutException(resourceAccessException.getMessage(), resourceAccessException.getCause());
         }
@@ -51,45 +50,31 @@ public class RestTemplateHttpLibrary implements HttpLibrary {
 
     private <T extends Serializable> ResponseEntity<String> exchange(RequestProperties<T> requestProperties) throws ResourceAccessException, RestClientResponseException {
         try {
-            logReqRes(requestProperties);
-            URI url = new URI(requestProperties.getUrl());
+            JacksonUtil.logReqRes(requestProperties);
+            URI url = requestProperties.getUrl();
             HttpEntity<T> httpEntity = new HttpEntity<>(requestProperties.getBody(), requestProperties.getHttpHeaders());
             return restTemplate.exchange(url, requestProperties.getHttpMethod(), httpEntity, String.class);
-        } catch (URISyntaxException e) {
-            LOGGER.error(e.getMessage(), e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Malformed URI");
         } catch (UnknownContentTypeException e) {
-            LOGGER.error(e.getMessage(), e);
-            throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, RESPONSE_MESSAGE);
+            throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, RESPONSE_MESSAGE, e);
         }
     }
 
     private <U> ResponseProperties<U> parseResponse(Class<U> responseClassType, ResponseEntity<String> responseEntity) {
         try {
-            logReqRes(responseClassType);
+            JacksonUtil.logReqRes(responseClassType);
 
             ResponseProperties.ResponsePropertiesBuilder<U> responsePropertiesBuilder = ResponseProperties.builder();
-            U responseBody = objectMapper.readValue(responseEntity.getBody(), responseClassType);
+            U responseBody = objectMapper.convertValue(responseEntity.getBody(), responseClassType);
 
-            logReqRes(responseBody);
+            JacksonUtil.logReqRes(responseBody);
             return responsePropertiesBuilder
                     .httpHeaders(responseEntity.getHeaders())
                     .httpStatus(responseEntity.getStatusCode())
                     .body(responseBody)
                     .build();
-        } catch (JsonProcessingException e) {
+        } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage(), e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to parse response");
-        }
-    }
-
-    protected <T> void logReqRes(T reqResBody) {
-        try {
-            String prettyString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(reqResBody);
-            LOGGER.info(prettyString);
-        } catch (JsonProcessingException e) {
-            LOGGER.error(e.getMessage(), e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to log  request/response body");
         }
     }
 

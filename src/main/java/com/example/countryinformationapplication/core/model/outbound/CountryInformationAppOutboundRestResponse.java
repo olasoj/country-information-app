@@ -1,4 +1,4 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,7 +26,9 @@ public class CountryInformationAppOutboundRestResponse {
     public boolean equals(Object obj) {
         if (this == obj) return true;
 
-        if (!(obj instanceof CountryInformationAppOutboundRestResponse otherCountryInformationAppOutboundRestResponse)) return false;
+        if (!(obj instanceof CountryInformationAppOutboundRestResponse)) return false;
+
+        CountryInformationAppOutboundRestResponse otherCountryInformationAppOutboundRestResponse = (CountryInformationAppOutboundRestResponse) obj;
 
         return new EqualsBuilder()
                 .append(error, otherCountryInformationAppOutboundRestResponse.error)

@@ -1,8 +1,11 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
@@ -67,4 +70,39 @@ public class LocationOfCountry implements Serializable {
         this.lat = lat;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof LocationOfCountry)) return false;
+
+        LocationOfCountry otherLocationOfCountry = (LocationOfCountry) obj;
+
+        return new EqualsBuilder()
+                .append(name, otherLocationOfCountry.name)
+                .append(iso2, otherLocationOfCountry.iso2)
+                .append(_long, otherLocationOfCountry._long)
+                .append(lat, otherLocationOfCountry.lat)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(name)
+                .append(iso2)
+                .append(_long)
+                .append(lat)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("iso2", iso2)
+                .append("_long", _long)
+                .append("lat", lat)
+                .toString();
+    }
 }

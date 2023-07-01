@@ -13,9 +13,9 @@ import java.time.Instant;
 
 public class CountryInformationApplicationInstantJacksonConfig {
 
-    @Primary
-    @Bean("jacksonObjectMapper")
-    public ObjectMapper createJacksonObjectMapper() {
+    public static final ObjectMapper JACKSON_OBJECT_MAPPER;
+
+    static {
         ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
         objectMapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
         objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
@@ -30,6 +30,13 @@ public class CountryInformationApplicationInstantJacksonConfig {
 
         JavaTimeModule timeModule = new JavaTimeModule();
         objectMapper.registerModule(timeModule);
-        return objectMapper;
+
+        JACKSON_OBJECT_MAPPER = objectMapper;
+    }
+
+    @Primary
+    @Bean("jacksonObjectMapper")
+    public ObjectMapper createJacksonObjectMapper() {
+        return JACKSON_OBJECT_MAPPER;
     }
 }

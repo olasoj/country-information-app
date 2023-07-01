@@ -1,8 +1,11 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
@@ -68,4 +71,39 @@ public class CapitalOfCountryData implements Serializable {
         this.iso3 = iso3;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof CapitalOfCountryData)) return false;
+
+        CapitalOfCountryData otherCapitalOfCountryData = (CapitalOfCountryData) obj;
+
+        return new EqualsBuilder()
+                .append(name, otherCapitalOfCountryData.name)
+                .append(capital, otherCapitalOfCountryData.capital)
+                .append(iso2, otherCapitalOfCountryData.iso2)
+                .append(iso3, otherCapitalOfCountryData.iso3)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(name)
+                .append(capital)
+                .append(iso2)
+                .append(iso3)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("capital", capital)
+                .append("iso2", iso2)
+                .append("iso3", iso3)
+                .toString();
+    }
 }

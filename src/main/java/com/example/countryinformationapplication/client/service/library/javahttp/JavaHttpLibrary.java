@@ -1,9 +1,7 @@
 package com.example.countryinformationapplication.client.service.library.javahttp;
 
-import com.example.countryinformationapplication.client.exception.CountryInformationApplicationHttpException;
-import com.example.countryinformationapplication.client.exception.CountryInformationApplicationHttpResourceTimeoutException;
-import com.example.countryinformationapplication.client.model.internal.valueobject.RequestProperties;
-import com.example.countryinformationapplication.client.model.internal.valueobject.ResponseProperties;
+import com.example.countryinformationapplication.client.model.RequestProperties;
+import com.example.countryinformationapplication.client.model.ResponseProperties;
 import com.example.countryinformationapplication.client.service.library.HttpLibrary;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -53,7 +50,7 @@ public class JavaHttpLibrary implements HttpLibrary {
     }
 
     @Override
-    public <T extends Serializable, U> ResponseProperties<U> exchange(RequestProperties<T> requestProperties, Class<U> responseClassType) throws CountryInformationApplicationHttpException, CountryInformationApplicationHttpResourceTimeoutException {
+    public <T extends Serializable, U> ResponseProperties<U> exchange(RequestProperties<T> requestProperties, Class<U> responseClassType) {
         HttpMethod httpMethod = requestProperties.getHttpMethod();
 
         String[] httpHeaders = convertHeadersToArrayFormat(requestProperties.getHttpHeaders());
@@ -63,7 +60,7 @@ public class JavaHttpLibrary implements HttpLibrary {
         HttpRequest.BodyPublisher bodyPublisher = bodyPublisher(body);
 
         HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create(requestProperties.getUrl()))
+                .uri(requestProperties.getUrl())
                 .headers(httpHeaders)
                 .method(httpMethod.name(), bodyPublisher)
                 .build();

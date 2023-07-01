@@ -1,4 +1,4 @@
-package com.example.countryinformationapplication.client.model.internal.valueobject;
+package com.example.countryinformationapplication.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -55,8 +55,10 @@ public class ResponseProperties<T> {
         if (obj == this)
             return true;
 
-        if (!(obj instanceof final ResponseProperties<?> otherResponseProperties))
+        if (!(obj instanceof ResponseProperties<?>))
             return false;
+
+        ResponseProperties<?> otherResponseProperties = (ResponseProperties<?>) obj;
 
         return new EqualsBuilder()
                 .append(this.httpStatus, otherResponseProperties.httpStatus)

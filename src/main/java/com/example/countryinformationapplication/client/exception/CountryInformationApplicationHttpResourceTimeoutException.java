@@ -1,9 +1,10 @@
 package com.example.countryinformationapplication.client.exception;
 
-public class CountryInformationApplicationHttpResourceTimeoutException extends RuntimeException {
+import com.example.countryinformationapplication.config.CountryInformationApplicationException;
+
+public class CountryInformationApplicationHttpResourceTimeoutException extends CountryInformationApplicationException {
 
     public CountryInformationApplicationHttpResourceTimeoutException(String message, Throwable cause) {
         super(message, cause);
     }
-
 }

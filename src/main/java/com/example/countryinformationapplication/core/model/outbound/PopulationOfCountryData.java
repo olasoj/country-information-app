@@ -1,8 +1,11 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
@@ -68,4 +71,34 @@ public class PopulationOfCountryData implements Serializable {
         this.populationCounts = populationCounts;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof PopulationOfCountryData)) return false;
+
+        PopulationOfCountryData otherPopulationOfCountryData = (PopulationOfCountryData) obj;
+
+        return new EqualsBuilder()
+                .append(country, otherPopulationOfCountryData.country)
+                .append(code, otherPopulationOfCountryData.code)
+                .append(iso3, otherPopulationOfCountryData.iso3)
+                .append(populationCounts, otherPopulationOfCountryData.populationCounts)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(country).append(code).append(iso3).append(populationCounts).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("country", country)
+                .append("code", code)
+                .append("iso3", iso3)
+                .append("populationCounts", populationCounts)
+                .toString();
+    }
 }

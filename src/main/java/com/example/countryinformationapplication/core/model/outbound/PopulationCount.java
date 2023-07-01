@@ -1,12 +1,17 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
         "year",
@@ -67,4 +72,34 @@ public class PopulationCount implements Serializable {
         this.reliabilty = reliabilty;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof PopulationCount)) return false;
+
+        PopulationCount otherPopulationCount = (PopulationCount) obj;
+
+        return new EqualsBuilder()
+                .append(year, otherPopulationCount.year)
+                .append(value, otherPopulationCount.value)
+                .append(sex, otherPopulationCount.sex)
+                .append(reliabilty, otherPopulationCount.reliabilty)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(year).append(value).append(sex).append(reliabilty).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("year", year)
+                .append("value", value)
+                .append("sex", sex)
+                .append("reliabilty", reliabilty)
+                .toString();
+    }
 }

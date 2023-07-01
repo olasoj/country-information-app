@@ -30,8 +30,8 @@ public class HttpMethodNotAssignToUrlErrHandler {
         var message = String.format("Could not find the %s method for URL: %s", ex.getHttpMethod(), ex.getRequestURL());
         LOGGER.error(ex.getMessage(), ex);
 
-        ResponseError responseError = ResponseErrorAssembler.toResponseError(message, HttpStatus.BAD_REQUEST);
-        Response<ResponseError> errorResponse = ResponseAssembler.toResponse(HttpStatus.BAD_REQUEST, responseError);
+        ResponseError responseError = ResponseErrorAssembler.toResponseError(message, HttpStatus.NOT_FOUND);
+        Response<ResponseError> errorResponse = ResponseAssembler.toResponse(HttpStatus.NOT_FOUND, responseError);
         responseModel.writeResponse(response, errorResponse);
     }
 }

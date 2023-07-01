@@ -1,13 +1,17 @@
-package com.example.countryinformationapplication.core.model;
+package com.example.countryinformationapplication.core.model.outbound;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonInclude;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
         "name",
         "iso3",
@@ -68,4 +72,29 @@ public class StatesOfCountry implements Serializable
         this.states = states;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof StatesOfCountry)) return false;
+
+        StatesOfCountry that = (StatesOfCountry) obj;
+
+        return new EqualsBuilder().append(name, that.name).append(iso3, that.iso3).append(iso2, that.iso2).append(states, that.states).isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(name).append(iso3).append(iso2).append(states).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("iso3", iso3)
+                .append("iso2", iso2)
+                .append("states", states)
+                .toString();
+    }
 }
