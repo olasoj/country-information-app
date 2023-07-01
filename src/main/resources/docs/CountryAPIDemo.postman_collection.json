@@ -1,0 +1,742 @@
+{
+	"info": {
+		"_postman_id": "390f3de9-b482-457a-85db-034daf642196",
+		"name": "CountryAPIDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7357801"
+	},
+	"item": [
+		{
+			"name": "GetCountryCitiesPopulation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"country",
+						"population",
+						"city",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "querySize",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCountryCitiesPopulation - SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"population",
+								"city",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "querySize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 15:47:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T15:47:50.338199Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Italy\": [\n            {\n                \"city\": \"Ancona\",\n                \"country\": \"Italy\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2012\",\n                        \"value\": \"100404\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Provisional figure\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"100497\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"103017\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Provisional figure\"\n                    },\n                    {\n                        \"year\": \"2010\",\n                        \"value\": \"102759\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2009\",\n                        \"value\": \"102284\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2008\",\n                        \"value\": \"101606\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2007\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2006\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2005\",\n                        \"value\": \"101862\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2004\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2003\",\n                        \"value\": \"101545\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2001\",\n                        \"value\": \"100507\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ],\n        \"Ghana\": [\n            {\n                \"city\": \"Sekondi\",\n                \"country\": \"Ghana\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2000\",\n                        \"value\": \"114157\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ],\n        \"NewZealand\": [\n            {\n                \"city\": \"Lower Hutt\",\n                \"country\": \"New Zealand\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2013\",\n                        \"value\": \"102900\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2012\",\n                        \"value\": \"102700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"103000\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2010\",\n                        \"value\": \"102700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2009\",\n                        \"value\": \"102100\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2008\",\n                        \"value\": \"101700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2006\",\n                        \"value\": \"101300\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2005\",\n                        \"value\": \"100500\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "GetCountryCitiesPopulation - FAILED",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"population",
+								"city",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "querySize",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "206"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 15:48:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T15:48:37.862244Z\",\n    \"statusCode\": 400,\n    \"data\": {\n        \"message\": \"Validation failed\",\n        \"error\": \"Bad Request\",\n        \"errors\": {\n            \"filter.querySize\": \"must be greater than or equal to 1\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCountryInformation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/country/information?country=Nigeria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"country",
+						"information"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Nigeria"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCountryInformation - SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/information?country=Nigeria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"information"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Nigeria"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 15:49:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T15:49:05.148818Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Currency\": {\n            \"name\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"iso2\": \"NG\",\n            \"iso3\": \"NGA\"\n        },\n        \"Population\": {\n            \"country\": \"Nigeria\",\n            \"code\": \"NGA\",\n            \"iso3\": \"NGA\",\n            \"populationCounts\": [\n                {\n                    \"year\": \"1960\",\n                    \"value\": \"45138458\"\n                },\n                {\n                    \"year\": \"1961\",\n                    \"value\": \"46063563\"\n                },\n                {\n                    \"year\": \"1962\",\n                    \"value\": \"47029822\"\n                },\n                {\n                    \"year\": \"1963\",\n                    \"value\": \"48032934\"\n                },\n                {\n                    \"year\": \"1964\",\n                    \"value\": \"49066760\"\n                },\n                {\n                    \"year\": \"1965\",\n                    \"value\": \"50127921\"\n                },\n                {\n                    \"year\": \"1966\",\n                    \"value\": \"51217973\"\n                },\n                {\n                    \"year\": \"1967\",\n                    \"value\": \"52342233\"\n                },\n                {\n                    \"year\": \"1968\",\n                    \"value\": \"53506196\"\n                },\n                {\n                    \"year\": \"1969\",\n                    \"value\": \"54717039\"\n                },\n                {\n                    \"year\": \"1970\",\n                    \"value\": \"55982144\"\n                },\n                {\n                    \"year\": \"1971\",\n                    \"value\": \"57296983\"\n                },\n                {\n                    \"year\": \"1972\",\n                    \"value\": \"58665808\"\n                },\n                {\n                    \"year\": \"1973\",\n                    \"value\": \"60114625\"\n                },\n                {\n                    \"year\": \"1974\",\n                    \"value\": \"61677177\"\n                },\n                {\n                    \"year\": \"1975\",\n                    \"value\": \"63374298\"\n                },\n                {\n                    \"year\": \"1976\",\n                    \"value\": \"65221378\"\n                },\n                {\n                    \"year\": \"1977\",\n                    \"value\": \"67203128\"\n                },\n                {\n                    \"year\": \"1978\",\n                    \"value\": \"69271917\"\n                },\n                {\n                    \"year\": \"1979\",\n                    \"value\": \"71361131\"\n                },\n                {\n                    \"year\": \"1980\",\n                    \"value\": \"73423633\"\n                },\n                {\n                    \"year\": \"1981\",\n                    \"value\": \"75440502\"\n                },\n                {\n                    \"year\": \"1982\",\n                    \"value\": \"77427546\"\n                },\n                {\n                    \"year\": \"1983\",\n                    \"value\": \"79414840\"\n                },\n                {\n                    \"year\": \"1984\",\n                    \"value\": \"81448755\"\n                },\n                {\n                    \"year\": \"1985\",\n                    \"value\": \"83562785\"\n                },\n                {\n                    \"year\": \"1986\",\n                    \"value\": \"85766399\"\n                },\n                {\n                    \"year\": \"1987\",\n                    \"value\": \"88048032\"\n                },\n                {\n                    \"year\": \"1988\",\n                    \"value\": \"90395271\"\n                },\n                {\n                    \"year\": \"1989\",\n                    \"value\": \"92788027\"\n                },\n                {\n                    \"year\": \"1990\",\n                    \"value\": \"95212450\"\n                },\n                {\n                    \"year\": \"1991\",\n                    \"value\": \"97667632\"\n                },\n                {\n                    \"year\": \"1992\",\n                    \"value\": \"100161710\"\n                },\n                {\n                    \"year\": \"1993\",\n                    \"value\": \"102700753\"\n                },\n                {\n                    \"year\": \"1994\",\n                    \"value\": \"105293700\"\n                },\n                {\n                    \"year\": \"1995\",\n                    \"value\": \"107948335\"\n                },\n                {\n                    \"year\": \"1996\",\n                    \"value\": \"110668794\"\n                },\n                {\n                    \"year\": \"1997\",\n                    \"value\": \"113457663\"\n                },\n                {\n                    \"year\": \"1998\",\n                    \"value\": \"116319759\"\n                },\n                {\n                    \"year\": \"1999\",\n                    \"value\": \"119260063\"\n                },\n                {\n                    \"year\": \"2000\",\n                    \"value\": \"122283850\"\n                },\n                {\n                    \"year\": \"2001\",\n                    \"value\": \"125394046\"\n                },\n                {\n                    \"year\": \"2002\",\n                    \"value\": \"128596076\"\n                },\n                {\n                    \"year\": \"2003\",\n                    \"value\": \"131900631\"\n                },\n                {\n                    \"year\": \"2004\",\n                    \"value\": \"135320422\"\n                },\n                {\n                    \"year\": \"2005\",\n                    \"value\": \"138865016\"\n                },\n                {\n                    \"year\": \"2006\",\n                    \"value\": \"142538308\"\n                },\n                {\n                    \"year\": \"2007\",\n                    \"value\": \"146339977\"\n                },\n                {\n                    \"year\": \"2008\",\n                    \"value\": \"150269623\"\n                },\n                {\n                    \"year\": \"2009\",\n                    \"value\": \"154324933\"\n                },\n                {\n                    \"year\": \"2010\",\n                    \"value\": \"158503197\"\n                },\n                {\n                    \"year\": \"2011\",\n                    \"value\": \"162805071\"\n                },\n                {\n                    \"year\": \"2012\",\n                    \"value\": \"167228767\"\n                },\n                {\n                    \"year\": \"2013\",\n                    \"value\": \"171765769\"\n                },\n                {\n                    \"year\": \"2014\",\n                    \"value\": \"176404902\"\n                },\n                {\n                    \"year\": \"2015\",\n                    \"value\": \"181137448\"\n                },\n                {\n                    \"year\": \"2016\",\n                    \"value\": \"185960289\"\n                },\n                {\n                    \"year\": \"2017\",\n                    \"value\": \"190873311\"\n                },\n                {\n                    \"year\": \"2018\",\n                    \"value\": \"195874740\"\n                }\n            ]\n        },\n        \"Capital\": {\n            \"name\": \"Nigeria\",\n            \"capital\": \"Abuja\",\n            \"iso2\": \"NG\",\n            \"iso3\": \"NGA\"\n        },\n        \"Location\": {\n            \"name\": \"Nigeria\",\n            \"iso2\": \"NG\",\n            \"long\": 8,\n            \"lat\": 10\n        }\n    }\n}"
+				},
+				{
+					"name": "GetCountryInformation - FAILED",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/information?country=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"information"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "188"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 15:50:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T15:50:23.974148Z\",\n    \"statusCode\": 400,\n    \"data\": {\n        \"message\": \"Validation failed\",\n        \"error\": \"Bad Request\",\n        \"errors\": {\n            \"information.country\": \"Enter country\"\n        }\n    }\n}"
+				},
+				{
+					"name": "GetCountryCitiesPopulation-FAILED-2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/information?country=Nigia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"information"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Nigia"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "171"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:03:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:03:46.500257Z\",\n    \"statusCode\": 404,\n    \"data\": {\n        \"message\": \"{\\\"error\\\":true,\\\"msg\\\":\\\"country data not found\\\"}\",\n        \"error\": \"Not Found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCountryStateAndCity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=Nigeria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"country",
+						"state-with-cities"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Nigeria"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCountryStateAndCity-SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=Nigeria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"state-with-cities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Nigeria"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:06:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T16:06:12.616616Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Kaduna State\": [\n            \"Anchau\",\n            \"Burumburum\",\n            \"Dutsen Wai\",\n            \"Hunkuyi\",\n            \"Kachia\",\n            \"Kaduna\",\n            \"Kafanchan\",\n            \"Kagoro\",\n            \"Kajuru\",\n            \"Kujama\",\n            \"Lere\",\n            \"Mando\",\n            \"Saminaka\",\n            \"Soba\",\n            \"Sofo-Birnin-Gwari\",\n            \"Zaria\"\n        ],\n        \"Borno State\": [\n            \"Bama\",\n            \"Benisheikh\",\n            \"Biu\",\n            \"Bornu Yassu\",\n            \"Damasak\",\n            \"Damboa\",\n            \"Dikwa\",\n            \"Gamboru\",\n            \"Gwoza\",\n            \"Kukawa\",\n            \"Magumeri\",\n            \"Maiduguri\",\n            \"Marte\",\n            \"Miringa\",\n            \"Monguno\",\n            \"Ngala\",\n            \"Shaffa\",\n            \"Shani\",\n            \"Tokombere\",\n            \"Uba\",\n            \"Wuyo\",\n            \"Yajiwa\"\n        ],\n        \"Bayelsa State\": [\n            \"Amassoma\",\n            \"Twon-Brass\",\n            \"Yenagoa\"\n        ],\n        \"Ogun State\": [\n            \"Abeokuta\",\n            \"Ado Odo\",\n            \"Idi Iroko\",\n            \"Ifo\",\n            \"Ijebu-Ife\",\n            \"Ijebu-Igbo\",\n            \"Ijebu-Ode\",\n            \"Ilaro\",\n            \"Imeko\",\n            \"Iperu\",\n            \"Isara\",\n            \"Owode\"\n        ],\n        \"Osun State\": [\n            \"Apomu\",\n            \"Ejigbo\",\n            \"Gbongan\",\n            \"Ijebu-Jesa\",\n            \"Ikire\",\n            \"Ikirun\",\n            \"Ila Orangun\",\n            \"Ile-Ife\",\n            \"Ilesa\",\n            \"Ilobu\",\n            \"Inisa\",\n            \"Iwo\",\n            \"Modakeke\",\n            \"Oke Mesi\",\n            \"Olupona\",\n            \"Osogbo\",\n            \"Otan Ayegbaju\",\n            \"Oyan\"\n        ],\n        \"Ebonyi State\": [\n            \"Abakaliki\",\n            \"Afikpo\",\n            \"Effium\",\n            \"Ezza-Ohu\",\n            \"Isieke\"\n        ],\n        \"Akwa Ibom State\": [\n            \"Eket\",\n            \"Esuk Oron\",\n            \"Ikot Ekpene\",\n            \"Itu\",\n            \"Uyo\"\n        ],\n        \"Yobe State\": [\n            \"Damaturu\",\n            \"Dankalwa\",\n            \"Dapchi\",\n            \"Daura\",\n            \"Fika\",\n            \"Gashua\",\n            \"Geidam\",\n            \"Goniri\",\n            \"Gorgoram\",\n            \"Gujba\",\n            \"Gwio Kura\",\n            \"Kumagunnam\",\n            \"Lajere\",\n            \"Machina\",\n            \"Nguru\",\n            \"Potiskum\"\n        ],\n        \"Delta State\": [\n            \"Abraka\",\n            \"Agbor\",\n            \"Asaba\",\n            \"Bomadi\",\n            \"Burutu\",\n            \"Kwale\",\n            \"Obiaruku\",\n            \"Ogwashi-Uku\",\n            \"Orerokpe\",\n            \"Patani\",\n            \"Sapele\",\n            \"Ughelli\",\n            \"Umunede\",\n            \"Warri\"\n        ],\n        \"Anambra State\": [\n            \"Agulu\",\n            \"Atani\",\n            \"Awka\",\n            \"Enugu-Ukwu\",\n            \"Igbo-Ukwu\",\n            \"Ihiala\",\n            \"Nkpor\",\n            \"Nnewi\",\n            \"Onitsha\",\n            \"Ozubulu\",\n            \"Uga\",\n            \"Uruobo-Okija\"\n        ],\n        \"Cross River State\": [\n            \"Akankpa\",\n            \"Calabar\",\n            \"Gakem\",\n            \"Ikang\",\n            \"Ugep\"\n        ],\n        \"Zamfara State\": [\n            \"Anka\",\n            \"Dan Sadau\",\n            \"Gummi\",\n            \"Gusau\",\n            \"Kaura Namoda\",\n            \"Kwatarkwashi\",\n            \"Maru\",\n            \"Moriki\",\n            \"Sauri\",\n            \"Tsafe\"\n        ],\n        \"Katsina State\": [\n            \"Danja\",\n            \"Dankama\",\n            \"Daura\",\n            \"Dutsin-Ma\",\n            \"Funtua\",\n            \"Gora\",\n            \"Jibia\",\n            \"Jikamshi\",\n            \"Kankara\",\n            \"Katsina\",\n            \"Mashi\",\n            \"Ruma\",\n            \"Runka\",\n            \"Wagini\"\n        ],\n        \"Federal Capital Territory\": [\n            \"Abuja\",\n            \"Kuje\",\n            \"Kwali\",\n            \"Madala\"\n        ],\n        \"Kano State\": [\n            \"Dan Gora\",\n            \"Gaya\",\n            \"Kano\"\n        ],\n        \"Kwara State\": [\n            \"Ajasse Ipo\",\n            \"Bode Saadu\",\n            \"Gwasero\",\n            \"Ilorin\",\n            \"Jebba\",\n            \"Kaiama\",\n            \"Lafiagi\",\n            \"Offa\",\n            \"Okuta\",\n            \"Omu-Aran\",\n            \"Patigi\",\n            \"Suya\",\n            \"Yashikera\"\n        ],\n        \"Adamawa State\": [\n            \"Ganye\",\n            \"Gombi\",\n            \"Holma\",\n            \"Jimeta\",\n            \"Madagali\",\n            \"Mayo-Belwa\",\n            \"Mubi\",\n            \"Ngurore\",\n            \"Numan\",\n            \"Toungo\",\n            \"Yola\"\n        ],\n        \"Enugu State\": [\n            \"Adani\",\n            \"Ake-Eze\",\n            \"Aku\",\n            \"Amagunze\",\n            \"Awgu\",\n            \"Eha Amufu\",\n            \"Enugu\",\n            \"Enugu-Ezike\",\n            \"Ete\",\n            \"Ikem\",\n            \"Mberubu\",\n            \"Nsukka\",\n            \"Obolo-Eke (1)\",\n            \"Opi\",\n            \"Udi\"\n        ],\n        \"Imo State\": [\n            \"Iho\",\n            \"Oguta\",\n            \"Okigwe\",\n            \"Orlu\",\n            \"Orodo\",\n            \"Owerri\"\n        ],\n        \"Ondo State\": [\n            \"Agbabu\",\n            \"Akure\",\n            \"Idanre\",\n            \"Ifon\",\n            \"Ilare\",\n            \"Ode\",\n            \"Ondo\",\n            \"Ore\",\n            \"Owo\"\n        ],\n        \"Ekiti State\": [\n            \"Ado-Ekiti\",\n            \"Aramoko-Ekiti\",\n            \"Efon-Alaaye\",\n            \"Emure-Ekiti\",\n            \"Ifaki\",\n            \"Igbara-Odo\",\n            \"Igede-Ekiti\",\n            \"Ijero-Ekiti\",\n            \"Ikere-Ekiti\",\n            \"Ipoti\",\n            \"Ise-Ekiti\",\n            \"Oke Ila\",\n            \"Omuo-Ekiti\"\n        ],\n        \"Taraba State\": [\n            \"Baissa\",\n            \"Beli\",\n            \"Gassol\",\n            \"Gembu\",\n            \"Ibi\",\n            \"Jalingo\",\n            \"Lau\",\n            \"Mutum Biyu\",\n            \"Riti\",\n            \"Wukari\"\n        ],\n        \"Gombe State\": [\n            \"Akko\",\n            \"Bara\",\n            \"Billiri\",\n            \"Dadiya\",\n            \"Deba\",\n            \"Dukku\",\n            \"Garko\",\n            \"Gombe\",\n            \"Hinna\",\n            \"Kafarati\",\n            \"Kaltungo\",\n            \"Kumo\",\n            \"Nafada\",\n            \"Pindiga\"\n        ],\n        \"Kogi State\": [\n            \"Abocho\",\n            \"Adoru\",\n            \"Ankpa\",\n            \"Bugana\",\n            \"Dekina\",\n            \"Egbe\",\n            \"Icheu\",\n            \"Idah\",\n            \"Isanlu-Itedoijowa\",\n            \"Kabba\",\n            \"Koton-Karfe\",\n            \"Lokoja\",\n            \"Ogaminana\",\n            \"Ogurugu\",\n            \"Okene\"\n        ],\n        \"Nasarawa State\": [\n            \"Buga\",\n            \"Doma\",\n            \"Keffi\",\n            \"Lafia\",\n            \"Nasarawa\",\n            \"Wamba\"\n        ],\n        \"Kebbi State\": [\n            \"Argungu\",\n            \"Bagudo\",\n            \"Bena\",\n            \"Bin Yauri\",\n            \"Birnin Kebbi\",\n            \"Dabai\",\n            \"Dakingari\",\n            \"Gulma\",\n            \"Gwandu\",\n            \"Jega\",\n            \"Kamba\",\n            \"Kangiwa\",\n            \"Kende\",\n            \"Mahuta\",\n            \"Maiyama\",\n            \"Shanga\",\n            \"Wasagu\",\n            \"Zuru\"\n        ],\n        \"Sokoto State\": [\n            \"Binji\",\n            \"Dange\",\n            \"Gandi\",\n            \"Goronyo\",\n            \"Gwadabawa\",\n            \"Illela\",\n            \"Rabah\",\n            \"Sokoto\",\n            \"Tambuwal\",\n            \"Wurno\"\n        ],\n        \"Benue State\": [\n            \"Aliade\",\n            \"Boju\",\n            \"Igbor\",\n            \"Makurdi\",\n            \"Ochobo\",\n            \"Otukpa\",\n            \"Takum\",\n            \"Ugbokpo\",\n            \"Yandev\",\n            \"Zaki Biam\"\n        ],\n        \"Oyo State\": [\n            \"Ago Are\",\n            \"Alapa\",\n            \"Fiditi\",\n            \"Ibadan\",\n            \"Igbeti\",\n            \"Igbo-Ora\",\n            \"Igboho\",\n            \"Kisi\",\n            \"Lalupon\",\n            \"Ogbomoso\",\n            \"Okeho\",\n            \"Orita Eruwa\",\n            \"Oyo\",\n            \"Saki\"\n        ],\n        \"Abia State\": [\n            \"Aba\",\n            \"Amaigbo\",\n            \"Arochukwu\",\n            \"Bende\",\n            \"Ohafia-Ifigh\",\n            \"Umuahia\"\n        ],\n        \"Bauchi State\": [\n            \"Azare\",\n            \"Bauchi\",\n            \"Boi\",\n            \"Bununu\",\n            \"Darazo\",\n            \"Dass\",\n            \"Dindima\",\n            \"Disina\",\n            \"Gabarin\",\n            \"Gwaram\",\n            \"Kari\",\n            \"Lame\",\n            \"Lere\",\n            \"Madara\",\n            \"Misau\",\n            \"Sade\",\n            \"Yamrat\",\n            \"Yanda Bayo\",\n            \"Yuli\",\n            \"Zadawa\",\n            \"Zalanga\"\n        ],\n        \"Jigawa State\": [\n            \"Babura\",\n            \"Birnin Kudu\",\n            \"Birniwa\",\n            \"Dutse\",\n            \"Gagarawa\",\n            \"Gumel\",\n            \"Gwaram\",\n            \"Hadejia\",\n            \"Kafin Hausa\",\n            \"Kazaure\",\n            \"Kiyawa\",\n            \"Mallammaduri\",\n            \"Ringim\",\n            \"Samamiya\"\n        ],\n        \"Plateau State\": [\n            \"Amper\",\n            \"Bukuru\",\n            \"Dengi\",\n            \"Jos\",\n            \"Kwolla\",\n            \"Langtang\",\n            \"Pankshin\",\n            \"Panyam\",\n            \"Vom\",\n            \"Yelwa\"\n        ],\n        \"Niger State\": [\n            \"Auna\",\n            \"Babana\",\n            \"Badeggi\",\n            \"Baro\",\n            \"Bokani\",\n            \"Duku\",\n            \"Ibeto\",\n            \"Konkwesso\",\n            \"Kontagora\",\n            \"Kusheriki\",\n            \"Kuta\",\n            \"Lapai\",\n            \"Minna\",\n            \"New Shagunnu\",\n            \"Suleja\",\n            \"Tegina\",\n            \"Ukata\",\n            \"Wawa\",\n            \"Zungeru\"\n        ],\n        \"Edo State\": [\n            \"Agenebode\",\n            \"Auchi\",\n            \"Benin City\",\n            \"Ekpoma\",\n            \"Igarra\",\n            \"Illushi\",\n            \"Siluko\",\n            \"Ubiaja\",\n            \"Uromi\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "GetCountryStateAndCity-FAILED",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=NigerI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"state-with-cities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "NigerI"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:06:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:06:52.506771Z\",\n    \"statusCode\": 404,\n    \"data\": {\n        \"message\": \"{\\\"error\\\":true,\\\"msg\\\":\\\"country not found\\\"}\",\n        \"error\": \"Not Found\"\n    }\n}"
+				},
+				{
+					"name": "GetCountryStateAndCity-FAILED2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"state-with-cities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:08:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:08:28.704084Z\",\n    \"statusCode\": 400,\n    \"data\": {\n        \"message\": \"Validation failed\",\n        \"error\": \"Bad Request\",\n        \"errors\": {\n            \"states.country\": \"Enter country\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCountryExchangeRate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/country/exchange-rate?country=Japan&targetCurrency=NGN&amount=998.908789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"country",
+						"exchange-rate"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Japan"
+						},
+						{
+							"key": "targetCurrency",
+							"value": "NGN"
+						},
+						{
+							"key": "amount",
+							"value": "998.908789"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCountryExchangeRate-FAILED",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/exchange-rate?country=Japan&targetCurrency=NGN&amount=998.908789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"exchange-rate"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Japan"
+								},
+								{
+									"key": "targetCurrency",
+									"value": "NGN"
+								},
+								{
+									"key": "amount",
+									"value": "998.908789"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "199"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:08:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:08:55.046632Z\",\n    \"statusCode\": 400,\n    \"data\": {\n        \"message\": \"Validation failed\",\n        \"error\": \"Bad Request\",\n        \"errors\": {\n            \"exchange.targetCurrency\": \"Enter targetCurrency\"\n        }\n    }\n}"
+				},
+				{
+					"name": "GetCountryExchangeRate-FAILED2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/exchange-rate?country=Nigeria&targetCurrency=NGN&amount=998.908789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"exchange-rate"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Nigeria"
+								},
+								{
+									"key": "targetCurrency",
+									"value": "NGN"
+								},
+								{
+									"key": "amount",
+									"value": "998.908789"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:09:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:09:40.189558Z\",\n    \"statusCode\": 404,\n    \"data\": {\n        \"message\": \"Country currency not supported\",\n        \"error\": \"Not Found\"\n    }\n}"
+				},
+				{
+					"name": "GetCountryExchangeRate-SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/exchange-rate?country=Japan&targetCurrency=NGN&amount=998.908789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"exchange-rate"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Japan"
+								},
+								{
+									"key": "targetCurrency",
+									"value": "NGN"
+								},
+								{
+									"key": "amount",
+									"value": "998.908789"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Jul 2023 16:10:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T16:10:16.586045Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"sourceCurrency\": \"JPY\",\n        \"exchangedAmount\": 3276.42\n    }\n}"
+				}
+			]
+		}
+	]
+}

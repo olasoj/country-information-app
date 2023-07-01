@@ -13,9 +13,7 @@ import static com.example.countryinformationapplication.config.jackson.CountryIn
 
 public class JacksonUtil {
 
-
     private static final Logger LOGGER = LoggerFactory.getLogger(JacksonUtil.class);
-
 
     private JacksonUtil() {
     }

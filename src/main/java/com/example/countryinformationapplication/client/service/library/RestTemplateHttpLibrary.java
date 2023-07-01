@@ -42,7 +42,7 @@ public class RestTemplateHttpLibrary implements HttpLibrary {
             return parseResponse(responseClassType, responseEntity);
         } catch (RestClientResponseException restClientResponseException) {
             ResponseProperties<String> responseProperties = toResponseProperties(restClientResponseException);
-            throw new CountryInformationApplicationResponseStatusException(restClientResponseException.getMessage(), restClientResponseException.getCause(), responseProperties);
+            throw new CountryInformationApplicationResponseStatusException(responseProperties.getBody(), restClientResponseException.getCause(), responseProperties);
         } catch (ResourceAccessException resourceAccessException) {
             throw new CountryInformationApplicationHttpResourceTimeoutException(resourceAccessException.getMessage(), resourceAccessException.getCause());
         }

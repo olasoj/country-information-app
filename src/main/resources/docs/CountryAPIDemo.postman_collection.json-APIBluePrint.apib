@@ -1,0 +1,1580 @@
+FORMAT: 1A
+HOST: http://localhost:8000/api/v1/country
+
+# CountryAPIDemo
+
+
+# Group Misc
+
+## Population City Filter [/population/city/filter{?querySize}]
+
+### GetCountryCitiesPopulation [GET]
++ Parameters
+    + querySize (number, required)
+
+        + Sample: 1
+
++ Response 200 (application/json)
+
+        OK
+
+
+    + Headers
+
+            Transfer-Encoding:chunked
+            Date:Sat, 01 Jul 2023 15:47:50 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryCitiesPopulation  SUCCESS)
+
+
+    + Body
+
+            {
+              "status": "SUCCESS",
+              "timestamp": "2023-07-01T15:47:50.338199Z",
+              "statusCode": 200,
+              "data": {
+                "Italy": [
+                  {
+                    "city": "Ancona",
+                    "country": "Italy",
+                    "populationCounts": [
+                      {
+                        "year": "2012",
+                        "value": "100404",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Provisional figure"
+                      },
+                      {
+                        "year": "2011",
+                        "value": "100497",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2011",
+                        "value": "103017",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Provisional figure"
+                      },
+                      {
+                        "year": "2010",
+                        "value": "102759",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2009",
+                        "value": "102284",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2008",
+                        "value": "101606",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2007",
+                        "value": "101671",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2006",
+                        "value": "101671",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2005",
+                        "value": "101862",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2004",
+                        "value": "101671",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2003",
+                        "value": "101545",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2001",
+                        "value": "100507",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      }
+                    ]
+                  }
+                ],
+                "Ghana": [
+                  {
+                    "city": "Sekondi",
+                    "country": "Ghana",
+                    "populationCounts": [
+                      {
+                        "year": "2000",
+                        "value": "114157",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      }
+                    ]
+                  }
+                ],
+                "NewZealand": [
+                  {
+                    "city": "Lower Hutt",
+                    "country": "New Zealand",
+                    "populationCounts": [
+                      {
+                        "year": "2013",
+                        "value": "102900",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2012",
+                        "value": "102700",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2011",
+                        "value": "103000",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2010",
+                        "value": "102700",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2009",
+                        "value": "102100",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2008",
+                        "value": "101700",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2006",
+                        "value": "101300",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      },
+                      {
+                        "year": "2005",
+                        "value": "100500",
+                        "sex": "Both Sexes",
+                        "reliabilty": "Final figure, complete"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+
+
++ Response 400 (application/json;charset=UTF-8)
+
+        Bad Request
+
+
+    + Headers
+
+            Content-Length:206
+            Date:Sat, 01 Jul 2023 15:48:37 GMT
+            Connection:close
+
+    + Attributes (GetCountryCitiesPopulation  FAILED1)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T15:48:37.862244Z",
+              "statusCode": 400,
+              "data": {
+                "message": "Validation failed",
+                "error": "Bad Request",
+                "errors": {
+                  "filter.querySize": "must be greater than or equal to 1"
+                }
+              }
+            }
+
+
+
+## Information [/information{?country}]
+
+### GetCountryInformation [GET]
++ Parameters
+    + country (string, required)
+
+        + Sample: Nigeria
+
++ Response 200 (application/json)
+
+        OK
+
+
+    + Headers
+
+            Transfer-Encoding:chunked
+            Date:Sat, 01 Jul 2023 15:49:05 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryInformation  SUCCESS)
+
+
+    + Body
+
+            {
+              "status": "SUCCESS",
+              "timestamp": "2023-07-01T15:49:05.148818Z",
+              "statusCode": 200,
+              "data": {
+                "Currency": {
+                  "name": "Nigeria",
+                  "currency": "NGN",
+                  "iso2": "NG",
+                  "iso3": "NGA"
+                },
+                "Population": {
+                  "country": "Nigeria",
+                  "code": "NGA",
+                  "iso3": "NGA",
+                  "populationCounts": [
+                    {
+                      "year": "1960",
+                      "value": "45138458"
+                    },
+                    {
+                      "year": "1961",
+                      "value": "46063563"
+                    },
+                    {
+                      "year": "1962",
+                      "value": "47029822"
+                    },
+                    {
+                      "year": "1963",
+                      "value": "48032934"
+                    },
+                    {
+                      "year": "1964",
+                      "value": "49066760"
+                    },
+                    {
+                      "year": "1965",
+                      "value": "50127921"
+                    },
+                    {
+                      "year": "1966",
+                      "value": "51217973"
+                    },
+                    {
+                      "year": "1967",
+                      "value": "52342233"
+                    },
+                    {
+                      "year": "1968",
+                      "value": "53506196"
+                    },
+                    {
+                      "year": "1969",
+                      "value": "54717039"
+                    },
+                    {
+                      "year": "1970",
+                      "value": "55982144"
+                    },
+                    {
+                      "year": "1971",
+                      "value": "57296983"
+                    },
+                    {
+                      "year": "1972",
+                      "value": "58665808"
+                    },
+                    {
+                      "year": "1973",
+                      "value": "60114625"
+                    },
+                    {
+                      "year": "1974",
+                      "value": "61677177"
+                    },
+                    {
+                      "year": "1975",
+                      "value": "63374298"
+                    },
+                    {
+                      "year": "1976",
+                      "value": "65221378"
+                    },
+                    {
+                      "year": "1977",
+                      "value": "67203128"
+                    },
+                    {
+                      "year": "1978",
+                      "value": "69271917"
+                    },
+                    {
+                      "year": "1979",
+                      "value": "71361131"
+                    },
+                    {
+                      "year": "1980",
+                      "value": "73423633"
+                    },
+                    {
+                      "year": "1981",
+                      "value": "75440502"
+                    },
+                    {
+                      "year": "1982",
+                      "value": "77427546"
+                    },
+                    {
+                      "year": "1983",
+                      "value": "79414840"
+                    },
+                    {
+                      "year": "1984",
+                      "value": "81448755"
+                    },
+                    {
+                      "year": "1985",
+                      "value": "83562785"
+                    },
+                    {
+                      "year": "1986",
+                      "value": "85766399"
+                    },
+                    {
+                      "year": "1987",
+                      "value": "88048032"
+                    },
+                    {
+                      "year": "1988",
+                      "value": "90395271"
+                    },
+                    {
+                      "year": "1989",
+                      "value": "92788027"
+                    },
+                    {
+                      "year": "1990",
+                      "value": "95212450"
+                    },
+                    {
+                      "year": "1991",
+                      "value": "97667632"
+                    },
+                    {
+                      "year": "1992",
+                      "value": "100161710"
+                    },
+                    {
+                      "year": "1993",
+                      "value": "102700753"
+                    },
+                    {
+                      "year": "1994",
+                      "value": "105293700"
+                    },
+                    {
+                      "year": "1995",
+                      "value": "107948335"
+                    },
+                    {
+                      "year": "1996",
+                      "value": "110668794"
+                    },
+                    {
+                      "year": "1997",
+                      "value": "113457663"
+                    },
+                    {
+                      "year": "1998",
+                      "value": "116319759"
+                    },
+                    {
+                      "year": "1999",
+                      "value": "119260063"
+                    },
+                    {
+                      "year": "2000",
+                      "value": "122283850"
+                    },
+                    {
+                      "year": "2001",
+                      "value": "125394046"
+                    },
+                    {
+                      "year": "2002",
+                      "value": "128596076"
+                    },
+                    {
+                      "year": "2003",
+                      "value": "131900631"
+                    },
+                    {
+                      "year": "2004",
+                      "value": "135320422"
+                    },
+                    {
+                      "year": "2005",
+                      "value": "138865016"
+                    },
+                    {
+                      "year": "2006",
+                      "value": "142538308"
+                    },
+                    {
+                      "year": "2007",
+                      "value": "146339977"
+                    },
+                    {
+                      "year": "2008",
+                      "value": "150269623"
+                    },
+                    {
+                      "year": "2009",
+                      "value": "154324933"
+                    },
+                    {
+                      "year": "2010",
+                      "value": "158503197"
+                    },
+                    {
+                      "year": "2011",
+                      "value": "162805071"
+                    },
+                    {
+                      "year": "2012",
+                      "value": "167228767"
+                    },
+                    {
+                      "year": "2013",
+                      "value": "171765769"
+                    },
+                    {
+                      "year": "2014",
+                      "value": "176404902"
+                    },
+                    {
+                      "year": "2015",
+                      "value": "181137448"
+                    },
+                    {
+                      "year": "2016",
+                      "value": "185960289"
+                    },
+                    {
+                      "year": "2017",
+                      "value": "190873311"
+                    },
+                    {
+                      "year": "2018",
+                      "value": "195874740"
+                    }
+                  ]
+                },
+                "Capital": {
+                  "name": "Nigeria",
+                  "capital": "Abuja",
+                  "iso2": "NG",
+                  "iso3": "NGA"
+                },
+                "Location": {
+                  "name": "Nigeria",
+                  "iso2": "NG",
+                  "long": 8,
+                  "lat": 10
+                }
+              }
+            }
+
+
++ Response 400 (application/json;charset=UTF-8)
+
+        Bad Request
+
+
+    + Headers
+
+            Content-Length:188
+            Date:Sat, 01 Jul 2023 15:50:23 GMT
+            Connection:close
+
+    + Attributes (GetCountryInformation  FAILED1)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T15:50:23.974148Z",
+              "statusCode": 400,
+              "data": {
+                "message": "Validation failed",
+                "error": "Bad Request",
+                "errors": {
+                  "information.country": "Enter country"
+                }
+              }
+            }
+
+
++ Response 404 (application/json;charset=UTF-8)
+
+        Not Found
+
+
+    + Headers
+
+            Content-Length:171
+            Date:Sat, 01 Jul 2023 16:03:46 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryCitiesPopulationFAILED21)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T16:03:46.500257Z",
+              "statusCode": 404,
+              "data": {
+                "message": "{\"error\":true,\"msg\":\"country data not found\"}",
+                "error": "Not Found"
+              }
+            }
+
+
+
+## State With Cities [/state-with-cities{?country}]
+
+### GetCountryStateAndCity [GET]
++ Parameters
+    + country (string, required)
+
+        + Sample: Nigeria
+
++ Response 200 (application/json)
+
+        OK
+
+
+    + Headers
+
+            Transfer-Encoding:chunked
+            Date:Sat, 01 Jul 2023 16:06:12 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryStateAndCitySUCCESS)
+
+
+    + Body
+
+            {
+              "status": "SUCCESS",
+              "timestamp": "2023-07-01T16:06:12.616616Z",
+              "statusCode": 200,
+              "data": {
+                "Kaduna State": [
+                  "Anchau",
+                  "Burumburum",
+                  "Dutsen Wai",
+                  "Hunkuyi",
+                  "Kachia",
+                  "Kaduna",
+                  "Kafanchan",
+                  "Kagoro",
+                  "Kajuru",
+                  "Kujama",
+                  "Lere",
+                  "Mando",
+                  "Saminaka",
+                  "Soba",
+                  "Sofo-Birnin-Gwari",
+                  "Zaria"
+                ],
+                "Borno State": [
+                  "Bama",
+                  "Benisheikh",
+                  "Biu",
+                  "Bornu Yassu",
+                  "Damasak",
+                  "Damboa",
+                  "Dikwa",
+                  "Gamboru",
+                  "Gwoza",
+                  "Kukawa",
+                  "Magumeri",
+                  "Maiduguri",
+                  "Marte",
+                  "Miringa",
+                  "Monguno",
+                  "Ngala",
+                  "Shaffa",
+                  "Shani",
+                  "Tokombere",
+                  "Uba",
+                  "Wuyo",
+                  "Yajiwa"
+                ],
+                "Bayelsa State": [
+                  "Amassoma",
+                  "Twon-Brass",
+                  "Yenagoa"
+                ],
+                "Ogun State": [
+                  "Abeokuta",
+                  "Ado Odo",
+                  "Idi Iroko",
+                  "Ifo",
+                  "Ijebu-Ife",
+                  "Ijebu-Igbo",
+                  "Ijebu-Ode",
+                  "Ilaro",
+                  "Imeko",
+                  "Iperu",
+                  "Isara",
+                  "Owode"
+                ],
+                "Osun State": [
+                  "Apomu",
+                  "Ejigbo",
+                  "Gbongan",
+                  "Ijebu-Jesa",
+                  "Ikire",
+                  "Ikirun",
+                  "Ila Orangun",
+                  "Ile-Ife",
+                  "Ilesa",
+                  "Ilobu",
+                  "Inisa",
+                  "Iwo",
+                  "Modakeke",
+                  "Oke Mesi",
+                  "Olupona",
+                  "Osogbo",
+                  "Otan Ayegbaju",
+                  "Oyan"
+                ],
+                "Ebonyi State": [
+                  "Abakaliki",
+                  "Afikpo",
+                  "Effium",
+                  "Ezza-Ohu",
+                  "Isieke"
+                ],
+                "Akwa Ibom State": [
+                  "Eket",
+                  "Esuk Oron",
+                  "Ikot Ekpene",
+                  "Itu",
+                  "Uyo"
+                ],
+                "Yobe State": [
+                  "Damaturu",
+                  "Dankalwa",
+                  "Dapchi",
+                  "Daura",
+                  "Fika",
+                  "Gashua",
+                  "Geidam",
+                  "Goniri",
+                  "Gorgoram",
+                  "Gujba",
+                  "Gwio Kura",
+                  "Kumagunnam",
+                  "Lajere",
+                  "Machina",
+                  "Nguru",
+                  "Potiskum"
+                ],
+                "Delta State": [
+                  "Abraka",
+                  "Agbor",
+                  "Asaba",
+                  "Bomadi",
+                  "Burutu",
+                  "Kwale",
+                  "Obiaruku",
+                  "Ogwashi-Uku",
+                  "Orerokpe",
+                  "Patani",
+                  "Sapele",
+                  "Ughelli",
+                  "Umunede",
+                  "Warri"
+                ],
+                "Anambra State": [
+                  "Agulu",
+                  "Atani",
+                  "Awka",
+                  "Enugu-Ukwu",
+                  "Igbo-Ukwu",
+                  "Ihiala",
+                  "Nkpor",
+                  "Nnewi",
+                  "Onitsha",
+                  "Ozubulu",
+                  "Uga",
+                  "Uruobo-Okija"
+                ],
+                "Cross River State": [
+                  "Akankpa",
+                  "Calabar",
+                  "Gakem",
+                  "Ikang",
+                  "Ugep"
+                ],
+                "Zamfara State": [
+                  "Anka",
+                  "Dan Sadau",
+                  "Gummi",
+                  "Gusau",
+                  "Kaura Namoda",
+                  "Kwatarkwashi",
+                  "Maru",
+                  "Moriki",
+                  "Sauri",
+                  "Tsafe"
+                ],
+                "Katsina State": [
+                  "Danja",
+                  "Dankama",
+                  "Daura",
+                  "Dutsin-Ma",
+                  "Funtua",
+                  "Gora",
+                  "Jibia",
+                  "Jikamshi",
+                  "Kankara",
+                  "Katsina",
+                  "Mashi",
+                  "Ruma",
+                  "Runka",
+                  "Wagini"
+                ],
+                "Federal Capital Territory": [
+                  "Abuja",
+                  "Kuje",
+                  "Kwali",
+                  "Madala"
+                ],
+                "Kano State": [
+                  "Dan Gora",
+                  "Gaya",
+                  "Kano"
+                ],
+                "Kwara State": [
+                  "Ajasse Ipo",
+                  "Bode Saadu",
+                  "Gwasero",
+                  "Ilorin",
+                  "Jebba",
+                  "Kaiama",
+                  "Lafiagi",
+                  "Offa",
+                  "Okuta",
+                  "Omu-Aran",
+                  "Patigi",
+                  "Suya",
+                  "Yashikera"
+                ],
+                "Adamawa State": [
+                  "Ganye",
+                  "Gombi",
+                  "Holma",
+                  "Jimeta",
+                  "Madagali",
+                  "Mayo-Belwa",
+                  "Mubi",
+                  "Ngurore",
+                  "Numan",
+                  "Toungo",
+                  "Yola"
+                ],
+                "Enugu State": [
+                  "Adani",
+                  "Ake-Eze",
+                  "Aku",
+                  "Amagunze",
+                  "Awgu",
+                  "Eha Amufu",
+                  "Enugu",
+                  "Enugu-Ezike",
+                  "Ete",
+                  "Ikem",
+                  "Mberubu",
+                  "Nsukka",
+                  "Obolo-Eke (1)",
+                  "Opi",
+                  "Udi"
+                ],
+                "Imo State": [
+                  "Iho",
+                  "Oguta",
+                  "Okigwe",
+                  "Orlu",
+                  "Orodo",
+                  "Owerri"
+                ],
+                "Ondo State": [
+                  "Agbabu",
+                  "Akure",
+                  "Idanre",
+                  "Ifon",
+                  "Ilare",
+                  "Ode",
+                  "Ondo",
+                  "Ore",
+                  "Owo"
+                ],
+                "Ekiti State": [
+                  "Ado-Ekiti",
+                  "Aramoko-Ekiti",
+                  "Efon-Alaaye",
+                  "Emure-Ekiti",
+                  "Ifaki",
+                  "Igbara-Odo",
+                  "Igede-Ekiti",
+                  "Ijero-Ekiti",
+                  "Ikere-Ekiti",
+                  "Ipoti",
+                  "Ise-Ekiti",
+                  "Oke Ila",
+                  "Omuo-Ekiti"
+                ],
+                "Taraba State": [
+                  "Baissa",
+                  "Beli",
+                  "Gassol",
+                  "Gembu",
+                  "Ibi",
+                  "Jalingo",
+                  "Lau",
+                  "Mutum Biyu",
+                  "Riti",
+                  "Wukari"
+                ],
+                "Gombe State": [
+                  "Akko",
+                  "Bara",
+                  "Billiri",
+                  "Dadiya",
+                  "Deba",
+                  "Dukku",
+                  "Garko",
+                  "Gombe",
+                  "Hinna",
+                  "Kafarati",
+                  "Kaltungo",
+                  "Kumo",
+                  "Nafada",
+                  "Pindiga"
+                ],
+                "Kogi State": [
+                  "Abocho",
+                  "Adoru",
+                  "Ankpa",
+                  "Bugana",
+                  "Dekina",
+                  "Egbe",
+                  "Icheu",
+                  "Idah",
+                  "Isanlu-Itedoijowa",
+                  "Kabba",
+                  "Koton-Karfe",
+                  "Lokoja",
+                  "Ogaminana",
+                  "Ogurugu",
+                  "Okene"
+                ],
+                "Nasarawa State": [
+                  "Buga",
+                  "Doma",
+                  "Keffi",
+                  "Lafia",
+                  "Nasarawa",
+                  "Wamba"
+                ],
+                "Kebbi State": [
+                  "Argungu",
+                  "Bagudo",
+                  "Bena",
+                  "Bin Yauri",
+                  "Birnin Kebbi",
+                  "Dabai",
+                  "Dakingari",
+                  "Gulma",
+                  "Gwandu",
+                  "Jega",
+                  "Kamba",
+                  "Kangiwa",
+                  "Kende",
+                  "Mahuta",
+                  "Maiyama",
+                  "Shanga",
+                  "Wasagu",
+                  "Zuru"
+                ],
+                "Sokoto State": [
+                  "Binji",
+                  "Dange",
+                  "Gandi",
+                  "Goronyo",
+                  "Gwadabawa",
+                  "Illela",
+                  "Rabah",
+                  "Sokoto",
+                  "Tambuwal",
+                  "Wurno"
+                ],
+                "Benue State": [
+                  "Aliade",
+                  "Boju",
+                  "Igbor",
+                  "Makurdi",
+                  "Ochobo",
+                  "Otukpa",
+                  "Takum",
+                  "Ugbokpo",
+                  "Yandev",
+                  "Zaki Biam"
+                ],
+                "Oyo State": [
+                  "Ago Are",
+                  "Alapa",
+                  "Fiditi",
+                  "Ibadan",
+                  "Igbeti",
+                  "Igbo-Ora",
+                  "Igboho",
+                  "Kisi",
+                  "Lalupon",
+                  "Ogbomoso",
+                  "Okeho",
+                  "Orita Eruwa",
+                  "Oyo",
+                  "Saki"
+                ],
+                "Abia State": [
+                  "Aba",
+                  "Amaigbo",
+                  "Arochukwu",
+                  "Bende",
+                  "Ohafia-Ifigh",
+                  "Umuahia"
+                ],
+                "Bauchi State": [
+                  "Azare",
+                  "Bauchi",
+                  "Boi",
+                  "Bununu",
+                  "Darazo",
+                  "Dass",
+                  "Dindima",
+                  "Disina",
+                  "Gabarin",
+                  "Gwaram",
+                  "Kari",
+                  "Lame",
+                  "Lere",
+                  "Madara",
+                  "Misau",
+                  "Sade",
+                  "Yamrat",
+                  "Yanda Bayo",
+                  "Yuli",
+                  "Zadawa",
+                  "Zalanga"
+                ],
+                "Jigawa State": [
+                  "Babura",
+                  "Birnin Kudu",
+                  "Birniwa",
+                  "Dutse",
+                  "Gagarawa",
+                  "Gumel",
+                  "Gwaram",
+                  "Hadejia",
+                  "Kafin Hausa",
+                  "Kazaure",
+                  "Kiyawa",
+                  "Mallammaduri",
+                  "Ringim",
+                  "Samamiya"
+                ],
+                "Plateau State": [
+                  "Amper",
+                  "Bukuru",
+                  "Dengi",
+                  "Jos",
+                  "Kwolla",
+                  "Langtang",
+                  "Pankshin",
+                  "Panyam",
+                  "Vom",
+                  "Yelwa"
+                ],
+                "Niger State": [
+                  "Auna",
+                  "Babana",
+                  "Badeggi",
+                  "Baro",
+                  "Bokani",
+                  "Duku",
+                  "Ibeto",
+                  "Konkwesso",
+                  "Kontagora",
+                  "Kusheriki",
+                  "Kuta",
+                  "Lapai",
+                  "Minna",
+                  "New Shagunnu",
+                  "Suleja",
+                  "Tegina",
+                  "Ukata",
+                  "Wawa",
+                  "Zungeru"
+                ],
+                "Edo State": [
+                  "Agenebode",
+                  "Auchi",
+                  "Benin City",
+                  "Ekpoma",
+                  "Igarra",
+                  "Illushi",
+                  "Siluko",
+                  "Ubiaja",
+                  "Uromi"
+                ]
+              }
+            }
+
+
++ Response 404 (application/json;charset=UTF-8)
+
+        Not Found
+
+
+    + Headers
+
+            Content-Length:166
+            Date:Sat, 01 Jul 2023 16:06:52 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryStateAndCityFAILED1)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T16:06:52.506771Z",
+              "statusCode": 404,
+              "data": {
+                "message": "{\"error\":true,\"msg\":\"country not found\"}",
+                "error": "Not Found"
+              }
+            }
+
+
++ Response 400 (application/json;charset=UTF-8)
+
+        Bad Request
+
+
+    + Headers
+
+            Content-Length:183
+            Date:Sat, 01 Jul 2023 16:08:28 GMT
+            Connection:close
+
+    + Attributes (GetCountryStateAndCityFAILED21)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T16:08:28.704084Z",
+              "statusCode": 400,
+              "data": {
+                "message": "Validation failed",
+                "error": "Bad Request",
+                "errors": {
+                  "states.country": "Enter country"
+                }
+              }
+            }
+
+
+
+## Exchange Rate [/exchange-rate{?country,targetCurrency,amount}]
+
+### GetCountryExchangeRate [GET]
++ Parameters
+    + country (string, required)
+
+        + Sample: Japan
+    + targetCurrency (string, required)
+
+        + Sample: NGN
+    + amount (number, required)
+
+        + Sample: 998.908789
+
++ Response 400 (application/json;charset=UTF-8)
+
+        Bad Request
+
+
+    + Headers
+
+            Content-Length:199
+            Date:Sat, 01 Jul 2023 16:08:55 GMT
+            Connection:close
+
+    + Attributes (GetCountryExchangeRateFAILED1)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T16:08:55.046632Z",
+              "statusCode": 400,
+              "data": {
+                "message": "Validation failed",
+                "error": "Bad Request",
+                "errors": {
+                  "exchange.targetCurrency": "Enter targetCurrency"
+                }
+              }
+            }
+
+
++ Response 404 (application/json;charset=UTF-8)
+
+        Not Found
+
+
+    + Headers
+
+            Content-Length:150
+            Date:Sat, 01 Jul 2023 16:09:40 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryExchangeRateFAILED21)
+
+
+    + Body
+
+            {
+              "status": "FAILED",
+              "timestamp": "2023-07-01T16:09:40.189558Z",
+              "statusCode": 404,
+              "data": {
+                "message": "Country currency not supported",
+                "error": "Not Found"
+              }
+            }
+
+
++ Response 200 (application/json)
+
+        OK
+
+
+    + Headers
+
+            Transfer-Encoding:chunked
+            Date:Sat, 01 Jul 2023 16:10:16 GMT
+            Keep-Alive:timeout=60
+            Connection:keep-alive
+
+    + Attributes (GetCountryExchangeRateSUCCESS)
+
+
+    + Body
+
+            {
+              "status": "SUCCESS",
+              "timestamp": "2023-07-01T16:10:16.586045Z",
+              "statusCode": 200,
+              "data": {
+                "sourceCurrency": "JPY",
+                "exchangedAmount": 3276.42
+              }
+            }
+
+
+
+
+# Data Structures
+
+## GetCountryCitiesPopulation  SUCCESS (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data, required) 
+
+
+## Data (object)
+
+
+### Properties
++ `Italy` (array[Italy], required) 
++ `Ghana` (array[Ghana], required) 
++ `NewZealand` (array[NewZealand], required) 
+
+
+## Italy (object)
+
+
+### Properties
++ `city` (string, required) 
++ `country` (string, required) 
++ `populationCounts` (array[PopulationCount], required) 
+
+
+## PopulationCount (object)
+
+
+### Properties
++ `year` (string, required) 
++ `value` (string, required) 
++ `sex` (string, required) 
++ `reliabilty` (string, required) 
+
+
+## Ghana (object)
+
+
+### Properties
++ `city` (string, required) 
++ `country` (string, required) 
++ `populationCounts` (array[PopulationCount], required) 
+
+
+## NewZealand (object)
+
+
+### Properties
++ `city` (string, required) 
++ `country` (string, required) 
++ `populationCounts` (array[PopulationCount], required) 
+
+
+## Data1 (object)
+
+
+### Properties
++ `message` (string, required) 
++ `error` (string, required) 
++ `errors` (Errors, required) 
+
+
+## Errors (object)
+
+
+### Properties
++ `filter.querySize` (string, required) 
+
+
+## GetCountryCitiesPopulation  FAILED1 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data1, required) 
+
+
+## GetCountryInformation  SUCCESS (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data3, required) 
+
+
+## Data3 (object)
+
+
+### Properties
++ `Currency` (Currency, required) 
++ `Population` (Population, required) 
++ `Capital` (Capital, required) 
++ `Location` (Location, required) 
+
+
+## Currency (object)
+
+
+### Properties
++ `name` (string, required) 
++ `currency` (string, required) 
++ `iso2` (string, required) 
++ `iso3` (string, required) 
+
+
+## Population (object)
+
+
+### Properties
++ `country` (string, required) 
++ `code` (string, required) 
++ `iso3` (string, required) 
++ `populationCounts` (array[PopulationCount3], required) 
+
+
+## PopulationCount3 (object)
+
+
+### Properties
++ `year` (string, required) 
++ `value` (string, required) 
+
+
+## Capital (object)
+
+
+### Properties
++ `name` (string, required) 
++ `capital` (string, required) 
++ `iso2` (string, required) 
++ `iso3` (string, required) 
+
+
+## Location (object)
+
+
+### Properties
++ `name` (string, required) 
++ `iso2` (string, required) 
++ `long` (number, required) 
++ `lat` (number, required) 
+
+
+## Data4 (object)
+
+
+### Properties
++ `message` (string, required) 
++ `error` (string, required) 
++ `errors` (Errors2, required) 
+
+
+## Errors2 (object)
+
+
+### Properties
++ `information.country` (string, required) 
+
+
+## GetCountryInformation  FAILED1 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data4, required) 
+
+
+## Data6 (object)
+
+
+### Properties
++ `message` (string, required) 
++ `error` (string, required) 
+
+
+## GetCountryCitiesPopulationFAILED21 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data6, required) 
+
+
+## GetCountryStateAndCitySUCCESS (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data8, required) 
+
+
+## Data8 (object)
+
+
+### Properties
++ `Kaduna State` (array[string], required) 
++ `Borno State` (array[string], required) 
++ `Bayelsa State` (array[string], required) 
++ `Ogun State` (array[string], required) 
++ `Osun State` (array[string], required) 
++ `Ebonyi State` (array[string], required) 
++ `Akwa Ibom State` (array[string], required) 
++ `Yobe State` (array[string], required) 
++ `Delta State` (array[string], required) 
++ `Anambra State` (array[string], required) 
++ `Cross River State` (array[string], required) 
++ `Zamfara State` (array[string], required) 
++ `Katsina State` (array[string], required) 
++ `Federal Capital Territory` (array[string], required) 
++ `Kano State` (array[string], required) 
++ `Kwara State` (array[string], required) 
++ `Adamawa State` (array[string], required) 
++ `Enugu State` (array[string], required) 
++ `Imo State` (array[string], required) 
++ `Ondo State` (array[string], required) 
++ `Ekiti State` (array[string], required) 
++ `Taraba State` (array[string], required) 
++ `Gombe State` (array[string], required) 
++ `Kogi State` (array[string], required) 
++ `Nasarawa State` (array[string], required) 
++ `Kebbi State` (array[string], required) 
++ `Sokoto State` (array[string], required) 
++ `Benue State` (array[string], required) 
++ `Oyo State` (array[string], required) 
++ `Abia State` (array[string], required) 
++ `Bauchi State` (array[string], required) 
++ `Jigawa State` (array[string], required) 
++ `Plateau State` (array[string], required) 
++ `Niger State` (array[string], required) 
++ `Edo State` (array[string], required) 
+
+
+## GetCountryStateAndCityFAILED1 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data6, required) 
+
+
+## Data11 (object)
+
+
+### Properties
++ `message` (string, required) 
++ `error` (string, required) 
++ `errors` (Errors4, required) 
+
+
+## Errors4 (object)
+
+
+### Properties
++ `states.country` (string, required) 
+
+
+## GetCountryStateAndCityFAILED21 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data11, required) 
+
+
+## Data13 (object)
+
+
+### Properties
++ `message` (string, required) 
++ `error` (string, required) 
++ `errors` (Errors6, required) 
+
+
+## Errors6 (object)
+
+
+### Properties
++ `exchange.targetCurrency` (string, required) 
+
+
+## GetCountryExchangeRateFAILED1 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data13, required) 
+
+
+## GetCountryExchangeRateFAILED21 (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data6, required) 
+
+
+## GetCountryExchangeRateSUCCESS (object)
+
+
+### Properties
++ `status` (string, required) 
++ `timestamp` (string, required) 
++ `statusCode` (number, required) 
++ `data` (Data17, required) 
+
+
+## Data17 (object)
+
+
+### Properties
++ `sourceCurrency` (string, required) 
++ `exchangedAmount` (number, required) 
+

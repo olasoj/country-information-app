@@ -1,0 +1,4411 @@
+openapi: 3.1.0
+info:
+  title: CountryAPIDemo
+  contact: {}
+  version: '1.0'
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+servers:
+- url: http://localhost:8000/api/v1/country
+  variables: {}
+paths:
+  /population/city/filter:
+    get:
+      tags:
+      - Misc
+      summary: GetCountryCitiesPopulation
+      operationId: GetCountryCitiesPopulation
+      parameters:
+      - name: querySize
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+      responses:
+        '200':
+          description: OK
+          headers:
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: chunked
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 15:47:50 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryCitiesPopulation-SUCCESS'
+                - examples:
+                  - status: SUCCESS
+                    timestamp: 2023-07-01T15:47:50.338199Z
+                    statusCode: 200
+                    data:
+                      Italy:
+                      - city: Ancona
+                        country: Italy
+                        populationCounts:
+                        - year: '2012'
+                          value: '100404'
+                          sex: Both Sexes
+                          reliabilty: Provisional figure
+                        - year: '2011'
+                          value: '100497'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2011'
+                          value: '103017'
+                          sex: Both Sexes
+                          reliabilty: Provisional figure
+                        - year: '2010'
+                          value: '102759'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2009'
+                          value: '102284'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2008'
+                          value: '101606'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2007'
+                          value: '101671'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2006'
+                          value: '101671'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2005'
+                          value: '101862'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2004'
+                          value: '101671'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2003'
+                          value: '101545'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2001'
+                          value: '100507'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                      Ghana:
+                      - city: Sekondi
+                        country: Ghana
+                        populationCounts:
+                        - year: '2000'
+                          value: '114157'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                      NewZealand:
+                      - city: Lower Hutt
+                        country: New Zealand
+                        populationCounts:
+                        - year: '2013'
+                          value: '102900'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2012'
+                          value: '102700'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2011'
+                          value: '103000'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2010'
+                          value: '102700'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2009'
+                          value: '102100'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2008'
+                          value: '101700'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2006'
+                          value: '101300'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                        - year: '2005'
+                          value: '100500'
+                          sex: Both Sexes
+                          reliabilty: Final figure, complete
+                contentMediaType: application/json
+              example:
+                status: SUCCESS
+                timestamp: 2023-07-01T15:47:50.338199Z
+                statusCode: 200
+                data:
+                  Italy:
+                  - city: Ancona
+                    country: Italy
+                    populationCounts:
+                    - year: '2012'
+                      value: '100404'
+                      sex: Both Sexes
+                      reliabilty: Provisional figure
+                    - year: '2011'
+                      value: '100497'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2011'
+                      value: '103017'
+                      sex: Both Sexes
+                      reliabilty: Provisional figure
+                    - year: '2010'
+                      value: '102759'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2009'
+                      value: '102284'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2008'
+                      value: '101606'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2007'
+                      value: '101671'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2006'
+                      value: '101671'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2005'
+                      value: '101862'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2004'
+                      value: '101671'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2003'
+                      value: '101545'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2001'
+                      value: '100507'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                  Ghana:
+                  - city: Sekondi
+                    country: Ghana
+                    populationCounts:
+                    - year: '2000'
+                      value: '114157'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                  NewZealand:
+                  - city: Lower Hutt
+                    country: New Zealand
+                    populationCounts:
+                    - year: '2013'
+                      value: '102900'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2012'
+                      value: '102700'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2011'
+                      value: '103000'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2010'
+                      value: '102700'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2009'
+                      value: '102100'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2008'
+                      value: '101700'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2006'
+                      value: '101300'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+                    - year: '2005'
+                      value: '100500'
+                      sex: Both Sexes
+                      reliabilty: Final figure, complete
+        '400':
+          description: Bad Request
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '206'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 15:48:37 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: close
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryCitiesPopulation-FAILED1'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T15:48:37.862244Z
+                    statusCode: 400
+                    data:
+                      message: Validation failed
+                      error: Bad Request
+                      errors:
+                        filter.querySize: must be greater than or equal to 1
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T15:48:37.862244Z
+                statusCode: 400
+                data:
+                  message: Validation failed
+                  error: Bad Request
+                  errors:
+                    filter.querySize: must be greater than or equal to 1
+      deprecated: false
+    parameters: []
+  /information:
+    get:
+      tags:
+      - Misc
+      summary: GetCountryInformation
+      operationId: GetCountryInformation
+      parameters:
+      - name: country
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - Nigeria
+      responses:
+        '200':
+          description: OK
+          headers:
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: chunked
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 15:49:05 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryInformation-SUCCESS'
+                - examples:
+                  - status: SUCCESS
+                    timestamp: 2023-07-01T15:49:05.148818Z
+                    statusCode: 200
+                    data:
+                      Currency:
+                        name: Nigeria
+                        currency: NGN
+                        iso2: NG
+                        iso3: NGA
+                      Population:
+                        country: Nigeria
+                        code: NGA
+                        iso3: NGA
+                        populationCounts:
+                        - year: '1960'
+                          value: '45138458'
+                        - year: '1961'
+                          value: '46063563'
+                        - year: '1962'
+                          value: '47029822'
+                        - year: '1963'
+                          value: '48032934'
+                        - year: '1964'
+                          value: '49066760'
+                        - year: '1965'
+                          value: '50127921'
+                        - year: '1966'
+                          value: '51217973'
+                        - year: '1967'
+                          value: '52342233'
+                        - year: '1968'
+                          value: '53506196'
+                        - year: '1969'
+                          value: '54717039'
+                        - year: '1970'
+                          value: '55982144'
+                        - year: '1971'
+                          value: '57296983'
+                        - year: '1972'
+                          value: '58665808'
+                        - year: '1973'
+                          value: '60114625'
+                        - year: '1974'
+                          value: '61677177'
+                        - year: '1975'
+                          value: '63374298'
+                        - year: '1976'
+                          value: '65221378'
+                        - year: '1977'
+                          value: '67203128'
+                        - year: '1978'
+                          value: '69271917'
+                        - year: '1979'
+                          value: '71361131'
+                        - year: '1980'
+                          value: '73423633'
+                        - year: '1981'
+                          value: '75440502'
+                        - year: '1982'
+                          value: '77427546'
+                        - year: '1983'
+                          value: '79414840'
+                        - year: '1984'
+                          value: '81448755'
+                        - year: '1985'
+                          value: '83562785'
+                        - year: '1986'
+                          value: '85766399'
+                        - year: '1987'
+                          value: '88048032'
+                        - year: '1988'
+                          value: '90395271'
+                        - year: '1989'
+                          value: '92788027'
+                        - year: '1990'
+                          value: '95212450'
+                        - year: '1991'
+                          value: '97667632'
+                        - year: '1992'
+                          value: '100161710'
+                        - year: '1993'
+                          value: '102700753'
+                        - year: '1994'
+                          value: '105293700'
+                        - year: '1995'
+                          value: '107948335'
+                        - year: '1996'
+                          value: '110668794'
+                        - year: '1997'
+                          value: '113457663'
+                        - year: '1998'
+                          value: '116319759'
+                        - year: '1999'
+                          value: '119260063'
+                        - year: '2000'
+                          value: '122283850'
+                        - year: '2001'
+                          value: '125394046'
+                        - year: '2002'
+                          value: '128596076'
+                        - year: '2003'
+                          value: '131900631'
+                        - year: '2004'
+                          value: '135320422'
+                        - year: '2005'
+                          value: '138865016'
+                        - year: '2006'
+                          value: '142538308'
+                        - year: '2007'
+                          value: '146339977'
+                        - year: '2008'
+                          value: '150269623'
+                        - year: '2009'
+                          value: '154324933'
+                        - year: '2010'
+                          value: '158503197'
+                        - year: '2011'
+                          value: '162805071'
+                        - year: '2012'
+                          value: '167228767'
+                        - year: '2013'
+                          value: '171765769'
+                        - year: '2014'
+                          value: '176404902'
+                        - year: '2015'
+                          value: '181137448'
+                        - year: '2016'
+                          value: '185960289'
+                        - year: '2017'
+                          value: '190873311'
+                        - year: '2018'
+                          value: '195874740'
+                      Capital:
+                        name: Nigeria
+                        capital: Abuja
+                        iso2: NG
+                        iso3: NGA
+                      Location:
+                        name: Nigeria
+                        iso2: NG
+                        long: 8
+                        lat: 10
+                contentMediaType: application/json
+              example:
+                status: SUCCESS
+                timestamp: 2023-07-01T15:49:05.148818Z
+                statusCode: 200
+                data:
+                  Currency:
+                    name: Nigeria
+                    currency: NGN
+                    iso2: NG
+                    iso3: NGA
+                  Population:
+                    country: Nigeria
+                    code: NGA
+                    iso3: NGA
+                    populationCounts:
+                    - year: '1960'
+                      value: '45138458'
+                    - year: '1961'
+                      value: '46063563'
+                    - year: '1962'
+                      value: '47029822'
+                    - year: '1963'
+                      value: '48032934'
+                    - year: '1964'
+                      value: '49066760'
+                    - year: '1965'
+                      value: '50127921'
+                    - year: '1966'
+                      value: '51217973'
+                    - year: '1967'
+                      value: '52342233'
+                    - year: '1968'
+                      value: '53506196'
+                    - year: '1969'
+                      value: '54717039'
+                    - year: '1970'
+                      value: '55982144'
+                    - year: '1971'
+                      value: '57296983'
+                    - year: '1972'
+                      value: '58665808'
+                    - year: '1973'
+                      value: '60114625'
+                    - year: '1974'
+                      value: '61677177'
+                    - year: '1975'
+                      value: '63374298'
+                    - year: '1976'
+                      value: '65221378'
+                    - year: '1977'
+                      value: '67203128'
+                    - year: '1978'
+                      value: '69271917'
+                    - year: '1979'
+                      value: '71361131'
+                    - year: '1980'
+                      value: '73423633'
+                    - year: '1981'
+                      value: '75440502'
+                    - year: '1982'
+                      value: '77427546'
+                    - year: '1983'
+                      value: '79414840'
+                    - year: '1984'
+                      value: '81448755'
+                    - year: '1985'
+                      value: '83562785'
+                    - year: '1986'
+                      value: '85766399'
+                    - year: '1987'
+                      value: '88048032'
+                    - year: '1988'
+                      value: '90395271'
+                    - year: '1989'
+                      value: '92788027'
+                    - year: '1990'
+                      value: '95212450'
+                    - year: '1991'
+                      value: '97667632'
+                    - year: '1992'
+                      value: '100161710'
+                    - year: '1993'
+                      value: '102700753'
+                    - year: '1994'
+                      value: '105293700'
+                    - year: '1995'
+                      value: '107948335'
+                    - year: '1996'
+                      value: '110668794'
+                    - year: '1997'
+                      value: '113457663'
+                    - year: '1998'
+                      value: '116319759'
+                    - year: '1999'
+                      value: '119260063'
+                    - year: '2000'
+                      value: '122283850'
+                    - year: '2001'
+                      value: '125394046'
+                    - year: '2002'
+                      value: '128596076'
+                    - year: '2003'
+                      value: '131900631'
+                    - year: '2004'
+                      value: '135320422'
+                    - year: '2005'
+                      value: '138865016'
+                    - year: '2006'
+                      value: '142538308'
+                    - year: '2007'
+                      value: '146339977'
+                    - year: '2008'
+                      value: '150269623'
+                    - year: '2009'
+                      value: '154324933'
+                    - year: '2010'
+                      value: '158503197'
+                    - year: '2011'
+                      value: '162805071'
+                    - year: '2012'
+                      value: '167228767'
+                    - year: '2013'
+                      value: '171765769'
+                    - year: '2014'
+                      value: '176404902'
+                    - year: '2015'
+                      value: '181137448'
+                    - year: '2016'
+                      value: '185960289'
+                    - year: '2017'
+                      value: '190873311'
+                    - year: '2018'
+                      value: '195874740'
+                  Capital:
+                    name: Nigeria
+                    capital: Abuja
+                    iso2: NG
+                    iso3: NGA
+                  Location:
+                    name: Nigeria
+                    iso2: NG
+                    long: 8
+                    lat: 10
+        '400':
+          description: Bad Request
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '188'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 15:50:23 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: close
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryInformation-FAILED1'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T15:50:23.974148Z
+                    statusCode: 400
+                    data:
+                      message: Validation failed
+                      error: Bad Request
+                      errors:
+                        information.country: Enter country
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T15:50:23.974148Z
+                statusCode: 400
+                data:
+                  message: Validation failed
+                  error: Bad Request
+                  errors:
+                    information.country: Enter country
+        '404':
+          description: Not Found
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '171'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:03:46 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryCitiesPopulation-FAILED-21'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T16:03:46.500257Z
+                    statusCode: 404
+                    data:
+                      message: '{"error":true,"msg":"country data not found"}'
+                      error: Not Found
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T16:03:46.500257Z
+                statusCode: 404
+                data:
+                  message: '{"error":true,"msg":"country data not found"}'
+                  error: Not Found
+      deprecated: false
+    parameters: []
+  /state-with-cities:
+    get:
+      tags:
+      - Misc
+      summary: GetCountryStateAndCity
+      operationId: GetCountryStateAndCity
+      parameters:
+      - name: country
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - Nigeria
+      responses:
+        '200':
+          description: OK
+          headers:
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: chunked
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:06:12 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryStateAndCity-SUCCESS'
+                - examples:
+                  - status: SUCCESS
+                    timestamp: 2023-07-01T16:06:12.616616Z
+                    statusCode: 200
+                    data:
+                      Kaduna State:
+                      - Anchau
+                      - Burumburum
+                      - Dutsen Wai
+                      - Hunkuyi
+                      - Kachia
+                      - Kaduna
+                      - Kafanchan
+                      - Kagoro
+                      - Kajuru
+                      - Kujama
+                      - Lere
+                      - Mando
+                      - Saminaka
+                      - Soba
+                      - Sofo-Birnin-Gwari
+                      - Zaria
+                      Borno State:
+                      - Bama
+                      - Benisheikh
+                      - Biu
+                      - Bornu Yassu
+                      - Damasak
+                      - Damboa
+                      - Dikwa
+                      - Gamboru
+                      - Gwoza
+                      - Kukawa
+                      - Magumeri
+                      - Maiduguri
+                      - Marte
+                      - Miringa
+                      - Monguno
+                      - Ngala
+                      - Shaffa
+                      - Shani
+                      - Tokombere
+                      - Uba
+                      - Wuyo
+                      - Yajiwa
+                      Bayelsa State:
+                      - Amassoma
+                      - Twon-Brass
+                      - Yenagoa
+                      Ogun State:
+                      - Abeokuta
+                      - Ado Odo
+                      - Idi Iroko
+                      - Ifo
+                      - Ijebu-Ife
+                      - Ijebu-Igbo
+                      - Ijebu-Ode
+                      - Ilaro
+                      - Imeko
+                      - Iperu
+                      - Isara
+                      - Owode
+                      Osun State:
+                      - Apomu
+                      - Ejigbo
+                      - Gbongan
+                      - Ijebu-Jesa
+                      - Ikire
+                      - Ikirun
+                      - Ila Orangun
+                      - Ile-Ife
+                      - Ilesa
+                      - Ilobu
+                      - Inisa
+                      - Iwo
+                      - Modakeke
+                      - Oke Mesi
+                      - Olupona
+                      - Osogbo
+                      - Otan Ayegbaju
+                      - Oyan
+                      Ebonyi State:
+                      - Abakaliki
+                      - Afikpo
+                      - Effium
+                      - Ezza-Ohu
+                      - Isieke
+                      Akwa Ibom State:
+                      - Eket
+                      - Esuk Oron
+                      - Ikot Ekpene
+                      - Itu
+                      - Uyo
+                      Yobe State:
+                      - Damaturu
+                      - Dankalwa
+                      - Dapchi
+                      - Daura
+                      - Fika
+                      - Gashua
+                      - Geidam
+                      - Goniri
+                      - Gorgoram
+                      - Gujba
+                      - Gwio Kura
+                      - Kumagunnam
+                      - Lajere
+                      - Machina
+                      - Nguru
+                      - Potiskum
+                      Delta State:
+                      - Abraka
+                      - Agbor
+                      - Asaba
+                      - Bomadi
+                      - Burutu
+                      - Kwale
+                      - Obiaruku
+                      - Ogwashi-Uku
+                      - Orerokpe
+                      - Patani
+                      - Sapele
+                      - Ughelli
+                      - Umunede
+                      - Warri
+                      Anambra State:
+                      - Agulu
+                      - Atani
+                      - Awka
+                      - Enugu-Ukwu
+                      - Igbo-Ukwu
+                      - Ihiala
+                      - Nkpor
+                      - Nnewi
+                      - Onitsha
+                      - Ozubulu
+                      - Uga
+                      - Uruobo-Okija
+                      Cross River State:
+                      - Akankpa
+                      - Calabar
+                      - Gakem
+                      - Ikang
+                      - Ugep
+                      Zamfara State:
+                      - Anka
+                      - Dan Sadau
+                      - Gummi
+                      - Gusau
+                      - Kaura Namoda
+                      - Kwatarkwashi
+                      - Maru
+                      - Moriki
+                      - Sauri
+                      - Tsafe
+                      Katsina State:
+                      - Danja
+                      - Dankama
+                      - Daura
+                      - Dutsin-Ma
+                      - Funtua
+                      - Gora
+                      - Jibia
+                      - Jikamshi
+                      - Kankara
+                      - Katsina
+                      - Mashi
+                      - Ruma
+                      - Runka
+                      - Wagini
+                      Federal Capital Territory:
+                      - Abuja
+                      - Kuje
+                      - Kwali
+                      - Madala
+                      Kano State:
+                      - Dan Gora
+                      - Gaya
+                      - Kano
+                      Kwara State:
+                      - Ajasse Ipo
+                      - Bode Saadu
+                      - Gwasero
+                      - Ilorin
+                      - Jebba
+                      - Kaiama
+                      - Lafiagi
+                      - Offa
+                      - Okuta
+                      - Omu-Aran
+                      - Patigi
+                      - Suya
+                      - Yashikera
+                      Adamawa State:
+                      - Ganye
+                      - Gombi
+                      - Holma
+                      - Jimeta
+                      - Madagali
+                      - Mayo-Belwa
+                      - Mubi
+                      - Ngurore
+                      - Numan
+                      - Toungo
+                      - Yola
+                      Enugu State:
+                      - Adani
+                      - Ake-Eze
+                      - Aku
+                      - Amagunze
+                      - Awgu
+                      - Eha Amufu
+                      - Enugu
+                      - Enugu-Ezike
+                      - Ete
+                      - Ikem
+                      - Mberubu
+                      - Nsukka
+                      - Obolo-Eke (1)
+                      - Opi
+                      - Udi
+                      Imo State:
+                      - Iho
+                      - Oguta
+                      - Okigwe
+                      - Orlu
+                      - Orodo
+                      - Owerri
+                      Ondo State:
+                      - Agbabu
+                      - Akure
+                      - Idanre
+                      - Ifon
+                      - Ilare
+                      - Ode
+                      - Ondo
+                      - Ore
+                      - Owo
+                      Ekiti State:
+                      - Ado-Ekiti
+                      - Aramoko-Ekiti
+                      - Efon-Alaaye
+                      - Emure-Ekiti
+                      - Ifaki
+                      - Igbara-Odo
+                      - Igede-Ekiti
+                      - Ijero-Ekiti
+                      - Ikere-Ekiti
+                      - Ipoti
+                      - Ise-Ekiti
+                      - Oke Ila
+                      - Omuo-Ekiti
+                      Taraba State:
+                      - Baissa
+                      - Beli
+                      - Gassol
+                      - Gembu
+                      - Ibi
+                      - Jalingo
+                      - Lau
+                      - Mutum Biyu
+                      - Riti
+                      - Wukari
+                      Gombe State:
+                      - Akko
+                      - Bara
+                      - Billiri
+                      - Dadiya
+                      - Deba
+                      - Dukku
+                      - Garko
+                      - Gombe
+                      - Hinna
+                      - Kafarati
+                      - Kaltungo
+                      - Kumo
+                      - Nafada
+                      - Pindiga
+                      Kogi State:
+                      - Abocho
+                      - Adoru
+                      - Ankpa
+                      - Bugana
+                      - Dekina
+                      - Egbe
+                      - Icheu
+                      - Idah
+                      - Isanlu-Itedoijowa
+                      - Kabba
+                      - Koton-Karfe
+                      - Lokoja
+                      - Ogaminana
+                      - Ogurugu
+                      - Okene
+                      Nasarawa State:
+                      - Buga
+                      - Doma
+                      - Keffi
+                      - Lafia
+                      - Nasarawa
+                      - Wamba
+                      Kebbi State:
+                      - Argungu
+                      - Bagudo
+                      - Bena
+                      - Bin Yauri
+                      - Birnin Kebbi
+                      - Dabai
+                      - Dakingari
+                      - Gulma
+                      - Gwandu
+                      - Jega
+                      - Kamba
+                      - Kangiwa
+                      - Kende
+                      - Mahuta
+                      - Maiyama
+                      - Shanga
+                      - Wasagu
+                      - Zuru
+                      Sokoto State:
+                      - Binji
+                      - Dange
+                      - Gandi
+                      - Goronyo
+                      - Gwadabawa
+                      - Illela
+                      - Rabah
+                      - Sokoto
+                      - Tambuwal
+                      - Wurno
+                      Benue State:
+                      - Aliade
+                      - Boju
+                      - Igbor
+                      - Makurdi
+                      - Ochobo
+                      - Otukpa
+                      - Takum
+                      - Ugbokpo
+                      - Yandev
+                      - Zaki Biam
+                      Oyo State:
+                      - Ago Are
+                      - Alapa
+                      - Fiditi
+                      - Ibadan
+                      - Igbeti
+                      - Igbo-Ora
+                      - Igboho
+                      - Kisi
+                      - Lalupon
+                      - Ogbomoso
+                      - Okeho
+                      - Orita Eruwa
+                      - Oyo
+                      - Saki
+                      Abia State:
+                      - Aba
+                      - Amaigbo
+                      - Arochukwu
+                      - Bende
+                      - Ohafia-Ifigh
+                      - Umuahia
+                      Bauchi State:
+                      - Azare
+                      - Bauchi
+                      - Boi
+                      - Bununu
+                      - Darazo
+                      - Dass
+                      - Dindima
+                      - Disina
+                      - Gabarin
+                      - Gwaram
+                      - Kari
+                      - Lame
+                      - Lere
+                      - Madara
+                      - Misau
+                      - Sade
+                      - Yamrat
+                      - Yanda Bayo
+                      - Yuli
+                      - Zadawa
+                      - Zalanga
+                      Jigawa State:
+                      - Babura
+                      - Birnin Kudu
+                      - Birniwa
+                      - Dutse
+                      - Gagarawa
+                      - Gumel
+                      - Gwaram
+                      - Hadejia
+                      - Kafin Hausa
+                      - Kazaure
+                      - Kiyawa
+                      - Mallammaduri
+                      - Ringim
+                      - Samamiya
+                      Plateau State:
+                      - Amper
+                      - Bukuru
+                      - Dengi
+                      - Jos
+                      - Kwolla
+                      - Langtang
+                      - Pankshin
+                      - Panyam
+                      - Vom
+                      - Yelwa
+                      Niger State:
+                      - Auna
+                      - Babana
+                      - Badeggi
+                      - Baro
+                      - Bokani
+                      - Duku
+                      - Ibeto
+                      - Konkwesso
+                      - Kontagora
+                      - Kusheriki
+                      - Kuta
+                      - Lapai
+                      - Minna
+                      - New Shagunnu
+                      - Suleja
+                      - Tegina
+                      - Ukata
+                      - Wawa
+                      - Zungeru
+                      Edo State:
+                      - Agenebode
+                      - Auchi
+                      - Benin City
+                      - Ekpoma
+                      - Igarra
+                      - Illushi
+                      - Siluko
+                      - Ubiaja
+                      - Uromi
+                contentMediaType: application/json
+              example:
+                status: SUCCESS
+                timestamp: 2023-07-01T16:06:12.616616Z
+                statusCode: 200
+                data:
+                  Kaduna State:
+                  - Anchau
+                  - Burumburum
+                  - Dutsen Wai
+                  - Hunkuyi
+                  - Kachia
+                  - Kaduna
+                  - Kafanchan
+                  - Kagoro
+                  - Kajuru
+                  - Kujama
+                  - Lere
+                  - Mando
+                  - Saminaka
+                  - Soba
+                  - Sofo-Birnin-Gwari
+                  - Zaria
+                  Borno State:
+                  - Bama
+                  - Benisheikh
+                  - Biu
+                  - Bornu Yassu
+                  - Damasak
+                  - Damboa
+                  - Dikwa
+                  - Gamboru
+                  - Gwoza
+                  - Kukawa
+                  - Magumeri
+                  - Maiduguri
+                  - Marte
+                  - Miringa
+                  - Monguno
+                  - Ngala
+                  - Shaffa
+                  - Shani
+                  - Tokombere
+                  - Uba
+                  - Wuyo
+                  - Yajiwa
+                  Bayelsa State:
+                  - Amassoma
+                  - Twon-Brass
+                  - Yenagoa
+                  Ogun State:
+                  - Abeokuta
+                  - Ado Odo
+                  - Idi Iroko
+                  - Ifo
+                  - Ijebu-Ife
+                  - Ijebu-Igbo
+                  - Ijebu-Ode
+                  - Ilaro
+                  - Imeko
+                  - Iperu
+                  - Isara
+                  - Owode
+                  Osun State:
+                  - Apomu
+                  - Ejigbo
+                  - Gbongan
+                  - Ijebu-Jesa
+                  - Ikire
+                  - Ikirun
+                  - Ila Orangun
+                  - Ile-Ife
+                  - Ilesa
+                  - Ilobu
+                  - Inisa
+                  - Iwo
+                  - Modakeke
+                  - Oke Mesi
+                  - Olupona
+                  - Osogbo
+                  - Otan Ayegbaju
+                  - Oyan
+                  Ebonyi State:
+                  - Abakaliki
+                  - Afikpo
+                  - Effium
+                  - Ezza-Ohu
+                  - Isieke
+                  Akwa Ibom State:
+                  - Eket
+                  - Esuk Oron
+                  - Ikot Ekpene
+                  - Itu
+                  - Uyo
+                  Yobe State:
+                  - Damaturu
+                  - Dankalwa
+                  - Dapchi
+                  - Daura
+                  - Fika
+                  - Gashua
+                  - Geidam
+                  - Goniri
+                  - Gorgoram
+                  - Gujba
+                  - Gwio Kura
+                  - Kumagunnam
+                  - Lajere
+                  - Machina
+                  - Nguru
+                  - Potiskum
+                  Delta State:
+                  - Abraka
+                  - Agbor
+                  - Asaba
+                  - Bomadi
+                  - Burutu
+                  - Kwale
+                  - Obiaruku
+                  - Ogwashi-Uku
+                  - Orerokpe
+                  - Patani
+                  - Sapele
+                  - Ughelli
+                  - Umunede
+                  - Warri
+                  Anambra State:
+                  - Agulu
+                  - Atani
+                  - Awka
+                  - Enugu-Ukwu
+                  - Igbo-Ukwu
+                  - Ihiala
+                  - Nkpor
+                  - Nnewi
+                  - Onitsha
+                  - Ozubulu
+                  - Uga
+                  - Uruobo-Okija
+                  Cross River State:
+                  - Akankpa
+                  - Calabar
+                  - Gakem
+                  - Ikang
+                  - Ugep
+                  Zamfara State:
+                  - Anka
+                  - Dan Sadau
+                  - Gummi
+                  - Gusau
+                  - Kaura Namoda
+                  - Kwatarkwashi
+                  - Maru
+                  - Moriki
+                  - Sauri
+                  - Tsafe
+                  Katsina State:
+                  - Danja
+                  - Dankama
+                  - Daura
+                  - Dutsin-Ma
+                  - Funtua
+                  - Gora
+                  - Jibia
+                  - Jikamshi
+                  - Kankara
+                  - Katsina
+                  - Mashi
+                  - Ruma
+                  - Runka
+                  - Wagini
+                  Federal Capital Territory:
+                  - Abuja
+                  - Kuje
+                  - Kwali
+                  - Madala
+                  Kano State:
+                  - Dan Gora
+                  - Gaya
+                  - Kano
+                  Kwara State:
+                  - Ajasse Ipo
+                  - Bode Saadu
+                  - Gwasero
+                  - Ilorin
+                  - Jebba
+                  - Kaiama
+                  - Lafiagi
+                  - Offa
+                  - Okuta
+                  - Omu-Aran
+                  - Patigi
+                  - Suya
+                  - Yashikera
+                  Adamawa State:
+                  - Ganye
+                  - Gombi
+                  - Holma
+                  - Jimeta
+                  - Madagali
+                  - Mayo-Belwa
+                  - Mubi
+                  - Ngurore
+                  - Numan
+                  - Toungo
+                  - Yola
+                  Enugu State:
+                  - Adani
+                  - Ake-Eze
+                  - Aku
+                  - Amagunze
+                  - Awgu
+                  - Eha Amufu
+                  - Enugu
+                  - Enugu-Ezike
+                  - Ete
+                  - Ikem
+                  - Mberubu
+                  - Nsukka
+                  - Obolo-Eke (1)
+                  - Opi
+                  - Udi
+                  Imo State:
+                  - Iho
+                  - Oguta
+                  - Okigwe
+                  - Orlu
+                  - Orodo
+                  - Owerri
+                  Ondo State:
+                  - Agbabu
+                  - Akure
+                  - Idanre
+                  - Ifon
+                  - Ilare
+                  - Ode
+                  - Ondo
+                  - Ore
+                  - Owo
+                  Ekiti State:
+                  - Ado-Ekiti
+                  - Aramoko-Ekiti
+                  - Efon-Alaaye
+                  - Emure-Ekiti
+                  - Ifaki
+                  - Igbara-Odo
+                  - Igede-Ekiti
+                  - Ijero-Ekiti
+                  - Ikere-Ekiti
+                  - Ipoti
+                  - Ise-Ekiti
+                  - Oke Ila
+                  - Omuo-Ekiti
+                  Taraba State:
+                  - Baissa
+                  - Beli
+                  - Gassol
+                  - Gembu
+                  - Ibi
+                  - Jalingo
+                  - Lau
+                  - Mutum Biyu
+                  - Riti
+                  - Wukari
+                  Gombe State:
+                  - Akko
+                  - Bara
+                  - Billiri
+                  - Dadiya
+                  - Deba
+                  - Dukku
+                  - Garko
+                  - Gombe
+                  - Hinna
+                  - Kafarati
+                  - Kaltungo
+                  - Kumo
+                  - Nafada
+                  - Pindiga
+                  Kogi State:
+                  - Abocho
+                  - Adoru
+                  - Ankpa
+                  - Bugana
+                  - Dekina
+                  - Egbe
+                  - Icheu
+                  - Idah
+                  - Isanlu-Itedoijowa
+                  - Kabba
+                  - Koton-Karfe
+                  - Lokoja
+                  - Ogaminana
+                  - Ogurugu
+                  - Okene
+                  Nasarawa State:
+                  - Buga
+                  - Doma
+                  - Keffi
+                  - Lafia
+                  - Nasarawa
+                  - Wamba
+                  Kebbi State:
+                  - Argungu
+                  - Bagudo
+                  - Bena
+                  - Bin Yauri
+                  - Birnin Kebbi
+                  - Dabai
+                  - Dakingari
+                  - Gulma
+                  - Gwandu
+                  - Jega
+                  - Kamba
+                  - Kangiwa
+                  - Kende
+                  - Mahuta
+                  - Maiyama
+                  - Shanga
+                  - Wasagu
+                  - Zuru
+                  Sokoto State:
+                  - Binji
+                  - Dange
+                  - Gandi
+                  - Goronyo
+                  - Gwadabawa
+                  - Illela
+                  - Rabah
+                  - Sokoto
+                  - Tambuwal
+                  - Wurno
+                  Benue State:
+                  - Aliade
+                  - Boju
+                  - Igbor
+                  - Makurdi
+                  - Ochobo
+                  - Otukpa
+                  - Takum
+                  - Ugbokpo
+                  - Yandev
+                  - Zaki Biam
+                  Oyo State:
+                  - Ago Are
+                  - Alapa
+                  - Fiditi
+                  - Ibadan
+                  - Igbeti
+                  - Igbo-Ora
+                  - Igboho
+                  - Kisi
+                  - Lalupon
+                  - Ogbomoso
+                  - Okeho
+                  - Orita Eruwa
+                  - Oyo
+                  - Saki
+                  Abia State:
+                  - Aba
+                  - Amaigbo
+                  - Arochukwu
+                  - Bende
+                  - Ohafia-Ifigh
+                  - Umuahia
+                  Bauchi State:
+                  - Azare
+                  - Bauchi
+                  - Boi
+                  - Bununu
+                  - Darazo
+                  - Dass
+                  - Dindima
+                  - Disina
+                  - Gabarin
+                  - Gwaram
+                  - Kari
+                  - Lame
+                  - Lere
+                  - Madara
+                  - Misau
+                  - Sade
+                  - Yamrat
+                  - Yanda Bayo
+                  - Yuli
+                  - Zadawa
+                  - Zalanga
+                  Jigawa State:
+                  - Babura
+                  - Birnin Kudu
+                  - Birniwa
+                  - Dutse
+                  - Gagarawa
+                  - Gumel
+                  - Gwaram
+                  - Hadejia
+                  - Kafin Hausa
+                  - Kazaure
+                  - Kiyawa
+                  - Mallammaduri
+                  - Ringim
+                  - Samamiya
+                  Plateau State:
+                  - Amper
+                  - Bukuru
+                  - Dengi
+                  - Jos
+                  - Kwolla
+                  - Langtang
+                  - Pankshin
+                  - Panyam
+                  - Vom
+                  - Yelwa
+                  Niger State:
+                  - Auna
+                  - Babana
+                  - Badeggi
+                  - Baro
+                  - Bokani
+                  - Duku
+                  - Ibeto
+                  - Konkwesso
+                  - Kontagora
+                  - Kusheriki
+                  - Kuta
+                  - Lapai
+                  - Minna
+                  - New Shagunnu
+                  - Suleja
+                  - Tegina
+                  - Ukata
+                  - Wawa
+                  - Zungeru
+                  Edo State:
+                  - Agenebode
+                  - Auchi
+                  - Benin City
+                  - Ekpoma
+                  - Igarra
+                  - Illushi
+                  - Siluko
+                  - Ubiaja
+                  - Uromi
+        '404':
+          description: Not Found
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '166'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:06:52 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryStateAndCity-FAILED1'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T16:06:52.506771Z
+                    statusCode: 404
+                    data:
+                      message: '{"error":true,"msg":"country not found"}'
+                      error: Not Found
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T16:06:52.506771Z
+                statusCode: 404
+                data:
+                  message: '{"error":true,"msg":"country not found"}'
+                  error: Not Found
+        '400':
+          description: Bad Request
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '183'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:08:28 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: close
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryStateAndCity-FAILED21'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T16:08:28.704084Z
+                    statusCode: 400
+                    data:
+                      message: Validation failed
+                      error: Bad Request
+                      errors:
+                        states.country: Enter country
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T16:08:28.704084Z
+                statusCode: 400
+                data:
+                  message: Validation failed
+                  error: Bad Request
+                  errors:
+                    states.country: Enter country
+      deprecated: false
+    parameters: []
+  /exchange-rate:
+    get:
+      tags:
+      - Misc
+      summary: GetCountryExchangeRate
+      operationId: GetCountryExchangeRate
+      parameters:
+      - name: country
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - Japan
+      - name: targetCurrency
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - NGN
+      - name: amount
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          contentEncoding: double
+          examples:
+          - 998.908789
+      responses:
+        '400':
+          description: Bad Request
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '199'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:08:55 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: close
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryExchangeRate-FAILED1'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T16:08:55.046632Z
+                    statusCode: 400
+                    data:
+                      message: Validation failed
+                      error: Bad Request
+                      errors:
+                        exchange.targetCurrency: Enter targetCurrency
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T16:08:55.046632Z
+                statusCode: 400
+                data:
+                  message: Validation failed
+                  error: Bad Request
+                  errors:
+                    exchange.targetCurrency: Enter targetCurrency
+        '404':
+          description: Not Found
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: '150'
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:09:40 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryExchangeRate-FAILED21'
+                - examples:
+                  - status: FAILED
+                    timestamp: 2023-07-01T16:09:40.189558Z
+                    statusCode: 404
+                    data:
+                      message: Country currency not supported
+                      error: Not Found
+                contentMediaType: application/json;charset=UTF-8
+              example:
+                status: FAILED
+                timestamp: 2023-07-01T16:09:40.189558Z
+                statusCode: 404
+                data:
+                  message: Country currency not supported
+                  error: Not Found
+        '200':
+          description: OK
+          headers:
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: chunked
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: Sat, 01 Jul 2023 16:10:16 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: timeout=60
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    contentMediaType: text/plain
+                  example: keep-alive
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/GetCountryExchangeRate-SUCCESS'
+                - examples:
+                  - status: SUCCESS
+                    timestamp: 2023-07-01T16:10:16.586045Z
+                    statusCode: 200
+                    data:
+                      sourceCurrency: JPY
+                      exchangedAmount: 3276.42
+                contentMediaType: application/json
+              example:
+                status: SUCCESS
+                timestamp: 2023-07-01T16:10:16.586045Z
+                statusCode: 200
+                data:
+                  sourceCurrency: JPY
+                  exchangedAmount: 3276.42
+      deprecated: false
+    parameters: []
+components:
+  schemas:
+    GetCountryCitiesPopulation-SUCCESS:
+      title: GetCountryCitiesPopulation-SUCCESS
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data'
+      examples:
+      - status: SUCCESS
+        timestamp: 2023-07-01T15:47:50.338199Z
+        statusCode: 200
+        data:
+          Italy:
+          - city: Ancona
+            country: Italy
+            populationCounts:
+            - year: '2012'
+              value: '100404'
+              sex: Both Sexes
+              reliabilty: Provisional figure
+            - year: '2011'
+              value: '100497'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2011'
+              value: '103017'
+              sex: Both Sexes
+              reliabilty: Provisional figure
+            - year: '2010'
+              value: '102759'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2009'
+              value: '102284'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2008'
+              value: '101606'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2007'
+              value: '101671'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2006'
+              value: '101671'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2005'
+              value: '101862'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2004'
+              value: '101671'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2003'
+              value: '101545'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2001'
+              value: '100507'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+          Ghana:
+          - city: Sekondi
+            country: Ghana
+            populationCounts:
+            - year: '2000'
+              value: '114157'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+          NewZealand:
+          - city: Lower Hutt
+            country: New Zealand
+            populationCounts:
+            - year: '2013'
+              value: '102900'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2012'
+              value: '102700'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2011'
+              value: '103000'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2010'
+              value: '102700'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2009'
+              value: '102100'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2008'
+              value: '101700'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2006'
+              value: '101300'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+            - year: '2005'
+              value: '100500'
+              sex: Both Sexes
+              reliabilty: Final figure, complete
+    Data:
+      title: Data
+      required:
+      - Italy
+      - Ghana
+      - NewZealand
+      type: object
+      properties:
+        Italy:
+          type: array
+          items:
+            $ref: '#/components/schemas/Italy'
+          description: ''
+        Ghana:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ghana'
+          description: ''
+        NewZealand:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewZealand'
+          description: ''
+      examples:
+      - Italy:
+        - city: Ancona
+          country: Italy
+          populationCounts:
+          - year: '2012'
+            value: '100404'
+            sex: Both Sexes
+            reliabilty: Provisional figure
+          - year: '2011'
+            value: '100497'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2011'
+            value: '103017'
+            sex: Both Sexes
+            reliabilty: Provisional figure
+          - year: '2010'
+            value: '102759'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2009'
+            value: '102284'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2008'
+            value: '101606'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2007'
+            value: '101671'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2006'
+            value: '101671'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2005'
+            value: '101862'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2004'
+            value: '101671'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2003'
+            value: '101545'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2001'
+            value: '100507'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+        Ghana:
+        - city: Sekondi
+          country: Ghana
+          populationCounts:
+          - year: '2000'
+            value: '114157'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+        NewZealand:
+        - city: Lower Hutt
+          country: New Zealand
+          populationCounts:
+          - year: '2013'
+            value: '102900'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2012'
+            value: '102700'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2011'
+            value: '103000'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2010'
+            value: '102700'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2009'
+            value: '102100'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2008'
+            value: '101700'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2006'
+            value: '101300'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+          - year: '2005'
+            value: '100500'
+            sex: Both Sexes
+            reliabilty: Final figure, complete
+    Italy:
+      title: Italy
+      required:
+      - city
+      - country
+      - populationCounts
+      type: object
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        populationCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationCount'
+          description: ''
+      examples:
+      - city: Ancona
+        country: Italy
+        populationCounts:
+        - year: '2012'
+          value: '100404'
+          sex: Both Sexes
+          reliabilty: Provisional figure
+        - year: '2011'
+          value: '100497'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2011'
+          value: '103017'
+          sex: Both Sexes
+          reliabilty: Provisional figure
+        - year: '2010'
+          value: '102759'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2009'
+          value: '102284'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2008'
+          value: '101606'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2007'
+          value: '101671'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2006'
+          value: '101671'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2005'
+          value: '101862'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2004'
+          value: '101671'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2003'
+          value: '101545'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2001'
+          value: '100507'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+    PopulationCount:
+      title: PopulationCount
+      required:
+      - year
+      - value
+      - sex
+      - reliabilty
+      type: object
+      properties:
+        year:
+          type: string
+        value:
+          type: string
+        sex:
+          type: string
+        reliabilty:
+          type: string
+      examples:
+      - year: '2012'
+        value: '100404'
+        sex: Both Sexes
+        reliabilty: Provisional figure
+    Ghana:
+      title: Ghana
+      required:
+      - city
+      - country
+      - populationCounts
+      type: object
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        populationCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationCount'
+          description: ''
+      examples:
+      - city: Sekondi
+        country: Ghana
+        populationCounts:
+        - year: '2000'
+          value: '114157'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+    NewZealand:
+      title: NewZealand
+      required:
+      - city
+      - country
+      - populationCounts
+      type: object
+      properties:
+        city:
+          type: string
+        country:
+          type: string
+        populationCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationCount'
+          description: ''
+      examples:
+      - city: Lower Hutt
+        country: New Zealand
+        populationCounts:
+        - year: '2013'
+          value: '102900'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2012'
+          value: '102700'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2011'
+          value: '103000'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2010'
+          value: '102700'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2009'
+          value: '102100'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2008'
+          value: '101700'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2006'
+          value: '101300'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+        - year: '2005'
+          value: '100500'
+          sex: Both Sexes
+          reliabilty: Final figure, complete
+    Data1:
+      title: Data1
+      required:
+      - message
+      - error
+      - errors
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+        errors:
+          $ref: '#/components/schemas/Errors'
+      examples:
+      - message: Validation failed
+        error: Bad Request
+        errors:
+          filter.querySize: must be greater than or equal to 1
+    Errors:
+      title: Errors
+      required:
+      - filter.querySize
+      type: object
+      properties:
+        filter.querySize:
+          type: string
+      examples:
+      - filter.querySize: must be greater than or equal to 1
+    GetCountryCitiesPopulation-FAILED1:
+      title: GetCountryCitiesPopulation-FAILED1
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data1'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T15:48:37.862244Z
+        statusCode: 400
+        data:
+          message: Validation failed
+          error: Bad Request
+          errors:
+            filter.querySize: must be greater than or equal to 1
+    GetCountryInformation-SUCCESS:
+      title: GetCountryInformation-SUCCESS
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data3'
+      examples:
+      - status: SUCCESS
+        timestamp: 2023-07-01T15:49:05.148818Z
+        statusCode: 200
+        data:
+          Currency:
+            name: Nigeria
+            currency: NGN
+            iso2: NG
+            iso3: NGA
+          Population:
+            country: Nigeria
+            code: NGA
+            iso3: NGA
+            populationCounts:
+            - year: '1960'
+              value: '45138458'
+            - year: '1961'
+              value: '46063563'
+            - year: '1962'
+              value: '47029822'
+            - year: '1963'
+              value: '48032934'
+            - year: '1964'
+              value: '49066760'
+            - year: '1965'
+              value: '50127921'
+            - year: '1966'
+              value: '51217973'
+            - year: '1967'
+              value: '52342233'
+            - year: '1968'
+              value: '53506196'
+            - year: '1969'
+              value: '54717039'
+            - year: '1970'
+              value: '55982144'
+            - year: '1971'
+              value: '57296983'
+            - year: '1972'
+              value: '58665808'
+            - year: '1973'
+              value: '60114625'
+            - year: '1974'
+              value: '61677177'
+            - year: '1975'
+              value: '63374298'
+            - year: '1976'
+              value: '65221378'
+            - year: '1977'
+              value: '67203128'
+            - year: '1978'
+              value: '69271917'
+            - year: '1979'
+              value: '71361131'
+            - year: '1980'
+              value: '73423633'
+            - year: '1981'
+              value: '75440502'
+            - year: '1982'
+              value: '77427546'
+            - year: '1983'
+              value: '79414840'
+            - year: '1984'
+              value: '81448755'
+            - year: '1985'
+              value: '83562785'
+            - year: '1986'
+              value: '85766399'
+            - year: '1987'
+              value: '88048032'
+            - year: '1988'
+              value: '90395271'
+            - year: '1989'
+              value: '92788027'
+            - year: '1990'
+              value: '95212450'
+            - year: '1991'
+              value: '97667632'
+            - year: '1992'
+              value: '100161710'
+            - year: '1993'
+              value: '102700753'
+            - year: '1994'
+              value: '105293700'
+            - year: '1995'
+              value: '107948335'
+            - year: '1996'
+              value: '110668794'
+            - year: '1997'
+              value: '113457663'
+            - year: '1998'
+              value: '116319759'
+            - year: '1999'
+              value: '119260063'
+            - year: '2000'
+              value: '122283850'
+            - year: '2001'
+              value: '125394046'
+            - year: '2002'
+              value: '128596076'
+            - year: '2003'
+              value: '131900631'
+            - year: '2004'
+              value: '135320422'
+            - year: '2005'
+              value: '138865016'
+            - year: '2006'
+              value: '142538308'
+            - year: '2007'
+              value: '146339977'
+            - year: '2008'
+              value: '150269623'
+            - year: '2009'
+              value: '154324933'
+            - year: '2010'
+              value: '158503197'
+            - year: '2011'
+              value: '162805071'
+            - year: '2012'
+              value: '167228767'
+            - year: '2013'
+              value: '171765769'
+            - year: '2014'
+              value: '176404902'
+            - year: '2015'
+              value: '181137448'
+            - year: '2016'
+              value: '185960289'
+            - year: '2017'
+              value: '190873311'
+            - year: '2018'
+              value: '195874740'
+          Capital:
+            name: Nigeria
+            capital: Abuja
+            iso2: NG
+            iso3: NGA
+          Location:
+            name: Nigeria
+            iso2: NG
+            long: 8
+            lat: 10
+    Data3:
+      title: Data3
+      required:
+      - Currency
+      - Population
+      - Capital
+      - Location
+      type: object
+      properties:
+        Currency:
+          $ref: '#/components/schemas/Currency'
+        Population:
+          $ref: '#/components/schemas/Population'
+        Capital:
+          $ref: '#/components/schemas/Capital'
+        Location:
+          $ref: '#/components/schemas/Location'
+      examples:
+      - Currency:
+          name: Nigeria
+          currency: NGN
+          iso2: NG
+          iso3: NGA
+        Population:
+          country: Nigeria
+          code: NGA
+          iso3: NGA
+          populationCounts:
+          - year: '1960'
+            value: '45138458'
+          - year: '1961'
+            value: '46063563'
+          - year: '1962'
+            value: '47029822'
+          - year: '1963'
+            value: '48032934'
+          - year: '1964'
+            value: '49066760'
+          - year: '1965'
+            value: '50127921'
+          - year: '1966'
+            value: '51217973'
+          - year: '1967'
+            value: '52342233'
+          - year: '1968'
+            value: '53506196'
+          - year: '1969'
+            value: '54717039'
+          - year: '1970'
+            value: '55982144'
+          - year: '1971'
+            value: '57296983'
+          - year: '1972'
+            value: '58665808'
+          - year: '1973'
+            value: '60114625'
+          - year: '1974'
+            value: '61677177'
+          - year: '1975'
+            value: '63374298'
+          - year: '1976'
+            value: '65221378'
+          - year: '1977'
+            value: '67203128'
+          - year: '1978'
+            value: '69271917'
+          - year: '1979'
+            value: '71361131'
+          - year: '1980'
+            value: '73423633'
+          - year: '1981'
+            value: '75440502'
+          - year: '1982'
+            value: '77427546'
+          - year: '1983'
+            value: '79414840'
+          - year: '1984'
+            value: '81448755'
+          - year: '1985'
+            value: '83562785'
+          - year: '1986'
+            value: '85766399'
+          - year: '1987'
+            value: '88048032'
+          - year: '1988'
+            value: '90395271'
+          - year: '1989'
+            value: '92788027'
+          - year: '1990'
+            value: '95212450'
+          - year: '1991'
+            value: '97667632'
+          - year: '1992'
+            value: '100161710'
+          - year: '1993'
+            value: '102700753'
+          - year: '1994'
+            value: '105293700'
+          - year: '1995'
+            value: '107948335'
+          - year: '1996'
+            value: '110668794'
+          - year: '1997'
+            value: '113457663'
+          - year: '1998'
+            value: '116319759'
+          - year: '1999'
+            value: '119260063'
+          - year: '2000'
+            value: '122283850'
+          - year: '2001'
+            value: '125394046'
+          - year: '2002'
+            value: '128596076'
+          - year: '2003'
+            value: '131900631'
+          - year: '2004'
+            value: '135320422'
+          - year: '2005'
+            value: '138865016'
+          - year: '2006'
+            value: '142538308'
+          - year: '2007'
+            value: '146339977'
+          - year: '2008'
+            value: '150269623'
+          - year: '2009'
+            value: '154324933'
+          - year: '2010'
+            value: '158503197'
+          - year: '2011'
+            value: '162805071'
+          - year: '2012'
+            value: '167228767'
+          - year: '2013'
+            value: '171765769'
+          - year: '2014'
+            value: '176404902'
+          - year: '2015'
+            value: '181137448'
+          - year: '2016'
+            value: '185960289'
+          - year: '2017'
+            value: '190873311'
+          - year: '2018'
+            value: '195874740'
+        Capital:
+          name: Nigeria
+          capital: Abuja
+          iso2: NG
+          iso3: NGA
+        Location:
+          name: Nigeria
+          iso2: NG
+          long: 8
+          lat: 10
+    Currency:
+      title: Currency
+      required:
+      - name
+      - currency
+      - iso2
+      - iso3
+      type: object
+      properties:
+        name:
+          type: string
+        currency:
+          type: string
+        iso2:
+          type: string
+        iso3:
+          type: string
+      examples:
+      - name: Nigeria
+        currency: NGN
+        iso2: NG
+        iso3: NGA
+    Population:
+      title: Population
+      required:
+      - country
+      - code
+      - iso3
+      - populationCounts
+      type: object
+      properties:
+        country:
+          type: string
+        code:
+          type: string
+        iso3:
+          type: string
+        populationCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PopulationCount3'
+          description: ''
+      examples:
+      - country: Nigeria
+        code: NGA
+        iso3: NGA
+        populationCounts:
+        - year: '1960'
+          value: '45138458'
+        - year: '1961'
+          value: '46063563'
+        - year: '1962'
+          value: '47029822'
+        - year: '1963'
+          value: '48032934'
+        - year: '1964'
+          value: '49066760'
+        - year: '1965'
+          value: '50127921'
+        - year: '1966'
+          value: '51217973'
+        - year: '1967'
+          value: '52342233'
+        - year: '1968'
+          value: '53506196'
+        - year: '1969'
+          value: '54717039'
+        - year: '1970'
+          value: '55982144'
+        - year: '1971'
+          value: '57296983'
+        - year: '1972'
+          value: '58665808'
+        - year: '1973'
+          value: '60114625'
+        - year: '1974'
+          value: '61677177'
+        - year: '1975'
+          value: '63374298'
+        - year: '1976'
+          value: '65221378'
+        - year: '1977'
+          value: '67203128'
+        - year: '1978'
+          value: '69271917'
+        - year: '1979'
+          value: '71361131'
+        - year: '1980'
+          value: '73423633'
+        - year: '1981'
+          value: '75440502'
+        - year: '1982'
+          value: '77427546'
+        - year: '1983'
+          value: '79414840'
+        - year: '1984'
+          value: '81448755'
+        - year: '1985'
+          value: '83562785'
+        - year: '1986'
+          value: '85766399'
+        - year: '1987'
+          value: '88048032'
+        - year: '1988'
+          value: '90395271'
+        - year: '1989'
+          value: '92788027'
+        - year: '1990'
+          value: '95212450'
+        - year: '1991'
+          value: '97667632'
+        - year: '1992'
+          value: '100161710'
+        - year: '1993'
+          value: '102700753'
+        - year: '1994'
+          value: '105293700'
+        - year: '1995'
+          value: '107948335'
+        - year: '1996'
+          value: '110668794'
+        - year: '1997'
+          value: '113457663'
+        - year: '1998'
+          value: '116319759'
+        - year: '1999'
+          value: '119260063'
+        - year: '2000'
+          value: '122283850'
+        - year: '2001'
+          value: '125394046'
+        - year: '2002'
+          value: '128596076'
+        - year: '2003'
+          value: '131900631'
+        - year: '2004'
+          value: '135320422'
+        - year: '2005'
+          value: '138865016'
+        - year: '2006'
+          value: '142538308'
+        - year: '2007'
+          value: '146339977'
+        - year: '2008'
+          value: '150269623'
+        - year: '2009'
+          value: '154324933'
+        - year: '2010'
+          value: '158503197'
+        - year: '2011'
+          value: '162805071'
+        - year: '2012'
+          value: '167228767'
+        - year: '2013'
+          value: '171765769'
+        - year: '2014'
+          value: '176404902'
+        - year: '2015'
+          value: '181137448'
+        - year: '2016'
+          value: '185960289'
+        - year: '2017'
+          value: '190873311'
+        - year: '2018'
+          value: '195874740'
+    PopulationCount3:
+      title: PopulationCount3
+      required:
+      - year
+      - value
+      type: object
+      properties:
+        year:
+          type: string
+        value:
+          type: string
+      examples:
+      - year: '1960'
+        value: '45138458'
+    Capital:
+      title: Capital
+      required:
+      - name
+      - capital
+      - iso2
+      - iso3
+      type: object
+      properties:
+        name:
+          type: string
+        capital:
+          type: string
+        iso2:
+          type: string
+        iso3:
+          type: string
+      examples:
+      - name: Nigeria
+        capital: Abuja
+        iso2: NG
+        iso3: NGA
+    Location:
+      title: Location
+      required:
+      - name
+      - iso2
+      - long
+      - lat
+      type: object
+      properties:
+        name:
+          type: string
+        iso2:
+          type: string
+        long:
+          type: integer
+          contentEncoding: int32
+        lat:
+          type: integer
+          contentEncoding: int32
+      examples:
+      - name: Nigeria
+        iso2: NG
+        long: 8
+        lat: 10
+    Data4:
+      title: Data4
+      required:
+      - message
+      - error
+      - errors
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+        errors:
+          $ref: '#/components/schemas/Errors2'
+      examples:
+      - message: Validation failed
+        error: Bad Request
+        errors:
+          information.country: Enter country
+    Errors2:
+      title: Errors2
+      required:
+      - information.country
+      type: object
+      properties:
+        information.country:
+          type: string
+      examples:
+      - information.country: Enter country
+    GetCountryInformation-FAILED1:
+      title: GetCountryInformation-FAILED1
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data4'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T15:50:23.974148Z
+        statusCode: 400
+        data:
+          message: Validation failed
+          error: Bad Request
+          errors:
+            information.country: Enter country
+    Data6:
+      title: Data6
+      required:
+      - message
+      - error
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+      examples:
+      - message: '{"error":true,"msg":"country data not found"}'
+        error: Not Found
+    GetCountryCitiesPopulation-FAILED-21:
+      title: GetCountryCitiesPopulation-FAILED-21
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data6'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T16:03:46.500257Z
+        statusCode: 404
+        data:
+          message: '{"error":true,"msg":"country data not found"}'
+          error: Not Found
+    GetCountryStateAndCity-SUCCESS:
+      title: GetCountryStateAndCity-SUCCESS
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data8'
+      examples:
+      - status: SUCCESS
+        timestamp: 2023-07-01T16:06:12.616616Z
+        statusCode: 200
+        data:
+          Kaduna State:
+          - Anchau
+          - Burumburum
+          - Dutsen Wai
+          - Hunkuyi
+          - Kachia
+          - Kaduna
+          - Kafanchan
+          - Kagoro
+          - Kajuru
+          - Kujama
+          - Lere
+          - Mando
+          - Saminaka
+          - Soba
+          - Sofo-Birnin-Gwari
+          - Zaria
+          Borno State:
+          - Bama
+          - Benisheikh
+          - Biu
+          - Bornu Yassu
+          - Damasak
+          - Damboa
+          - Dikwa
+          - Gamboru
+          - Gwoza
+          - Kukawa
+          - Magumeri
+          - Maiduguri
+          - Marte
+          - Miringa
+          - Monguno
+          - Ngala
+          - Shaffa
+          - Shani
+          - Tokombere
+          - Uba
+          - Wuyo
+          - Yajiwa
+          Bayelsa State:
+          - Amassoma
+          - Twon-Brass
+          - Yenagoa
+          Ogun State:
+          - Abeokuta
+          - Ado Odo
+          - Idi Iroko
+          - Ifo
+          - Ijebu-Ife
+          - Ijebu-Igbo
+          - Ijebu-Ode
+          - Ilaro
+          - Imeko
+          - Iperu
+          - Isara
+          - Owode
+          Osun State:
+          - Apomu
+          - Ejigbo
+          - Gbongan
+          - Ijebu-Jesa
+          - Ikire
+          - Ikirun
+          - Ila Orangun
+          - Ile-Ife
+          - Ilesa
+          - Ilobu
+          - Inisa
+          - Iwo
+          - Modakeke
+          - Oke Mesi
+          - Olupona
+          - Osogbo
+          - Otan Ayegbaju
+          - Oyan
+          Ebonyi State:
+          - Abakaliki
+          - Afikpo
+          - Effium
+          - Ezza-Ohu
+          - Isieke
+          Akwa Ibom State:
+          - Eket
+          - Esuk Oron
+          - Ikot Ekpene
+          - Itu
+          - Uyo
+          Yobe State:
+          - Damaturu
+          - Dankalwa
+          - Dapchi
+          - Daura
+          - Fika
+          - Gashua
+          - Geidam
+          - Goniri
+          - Gorgoram
+          - Gujba
+          - Gwio Kura
+          - Kumagunnam
+          - Lajere
+          - Machina
+          - Nguru
+          - Potiskum
+          Delta State:
+          - Abraka
+          - Agbor
+          - Asaba
+          - Bomadi
+          - Burutu
+          - Kwale
+          - Obiaruku
+          - Ogwashi-Uku
+          - Orerokpe
+          - Patani
+          - Sapele
+          - Ughelli
+          - Umunede
+          - Warri
+          Anambra State:
+          - Agulu
+          - Atani
+          - Awka
+          - Enugu-Ukwu
+          - Igbo-Ukwu
+          - Ihiala
+          - Nkpor
+          - Nnewi
+          - Onitsha
+          - Ozubulu
+          - Uga
+          - Uruobo-Okija
+          Cross River State:
+          - Akankpa
+          - Calabar
+          - Gakem
+          - Ikang
+          - Ugep
+          Zamfara State:
+          - Anka
+          - Dan Sadau
+          - Gummi
+          - Gusau
+          - Kaura Namoda
+          - Kwatarkwashi
+          - Maru
+          - Moriki
+          - Sauri
+          - Tsafe
+          Katsina State:
+          - Danja
+          - Dankama
+          - Daura
+          - Dutsin-Ma
+          - Funtua
+          - Gora
+          - Jibia
+          - Jikamshi
+          - Kankara
+          - Katsina
+          - Mashi
+          - Ruma
+          - Runka
+          - Wagini
+          Federal Capital Territory:
+          - Abuja
+          - Kuje
+          - Kwali
+          - Madala
+          Kano State:
+          - Dan Gora
+          - Gaya
+          - Kano
+          Kwara State:
+          - Ajasse Ipo
+          - Bode Saadu
+          - Gwasero
+          - Ilorin
+          - Jebba
+          - Kaiama
+          - Lafiagi
+          - Offa
+          - Okuta
+          - Omu-Aran
+          - Patigi
+          - Suya
+          - Yashikera
+          Adamawa State:
+          - Ganye
+          - Gombi
+          - Holma
+          - Jimeta
+          - Madagali
+          - Mayo-Belwa
+          - Mubi
+          - Ngurore
+          - Numan
+          - Toungo
+          - Yola
+          Enugu State:
+          - Adani
+          - Ake-Eze
+          - Aku
+          - Amagunze
+          - Awgu
+          - Eha Amufu
+          - Enugu
+          - Enugu-Ezike
+          - Ete
+          - Ikem
+          - Mberubu
+          - Nsukka
+          - Obolo-Eke (1)
+          - Opi
+          - Udi
+          Imo State:
+          - Iho
+          - Oguta
+          - Okigwe
+          - Orlu
+          - Orodo
+          - Owerri
+          Ondo State:
+          - Agbabu
+          - Akure
+          - Idanre
+          - Ifon
+          - Ilare
+          - Ode
+          - Ondo
+          - Ore
+          - Owo
+          Ekiti State:
+          - Ado-Ekiti
+          - Aramoko-Ekiti
+          - Efon-Alaaye
+          - Emure-Ekiti
+          - Ifaki
+          - Igbara-Odo
+          - Igede-Ekiti
+          - Ijero-Ekiti
+          - Ikere-Ekiti
+          - Ipoti
+          - Ise-Ekiti
+          - Oke Ila
+          - Omuo-Ekiti
+          Taraba State:
+          - Baissa
+          - Beli
+          - Gassol
+          - Gembu
+          - Ibi
+          - Jalingo
+          - Lau
+          - Mutum Biyu
+          - Riti
+          - Wukari
+          Gombe State:
+          - Akko
+          - Bara
+          - Billiri
+          - Dadiya
+          - Deba
+          - Dukku
+          - Garko
+          - Gombe
+          - Hinna
+          - Kafarati
+          - Kaltungo
+          - Kumo
+          - Nafada
+          - Pindiga
+          Kogi State:
+          - Abocho
+          - Adoru
+          - Ankpa
+          - Bugana
+          - Dekina
+          - Egbe
+          - Icheu
+          - Idah
+          - Isanlu-Itedoijowa
+          - Kabba
+          - Koton-Karfe
+          - Lokoja
+          - Ogaminana
+          - Ogurugu
+          - Okene
+          Nasarawa State:
+          - Buga
+          - Doma
+          - Keffi
+          - Lafia
+          - Nasarawa
+          - Wamba
+          Kebbi State:
+          - Argungu
+          - Bagudo
+          - Bena
+          - Bin Yauri
+          - Birnin Kebbi
+          - Dabai
+          - Dakingari
+          - Gulma
+          - Gwandu
+          - Jega
+          - Kamba
+          - Kangiwa
+          - Kende
+          - Mahuta
+          - Maiyama
+          - Shanga
+          - Wasagu
+          - Zuru
+          Sokoto State:
+          - Binji
+          - Dange
+          - Gandi
+          - Goronyo
+          - Gwadabawa
+          - Illela
+          - Rabah
+          - Sokoto
+          - Tambuwal
+          - Wurno
+          Benue State:
+          - Aliade
+          - Boju
+          - Igbor
+          - Makurdi
+          - Ochobo
+          - Otukpa
+          - Takum
+          - Ugbokpo
+          - Yandev
+          - Zaki Biam
+          Oyo State:
+          - Ago Are
+          - Alapa
+          - Fiditi
+          - Ibadan
+          - Igbeti
+          - Igbo-Ora
+          - Igboho
+          - Kisi
+          - Lalupon
+          - Ogbomoso
+          - Okeho
+          - Orita Eruwa
+          - Oyo
+          - Saki
+          Abia State:
+          - Aba
+          - Amaigbo
+          - Arochukwu
+          - Bende
+          - Ohafia-Ifigh
+          - Umuahia
+          Bauchi State:
+          - Azare
+          - Bauchi
+          - Boi
+          - Bununu
+          - Darazo
+          - Dass
+          - Dindima
+          - Disina
+          - Gabarin
+          - Gwaram
+          - Kari
+          - Lame
+          - Lere
+          - Madara
+          - Misau
+          - Sade
+          - Yamrat
+          - Yanda Bayo
+          - Yuli
+          - Zadawa
+          - Zalanga
+          Jigawa State:
+          - Babura
+          - Birnin Kudu
+          - Birniwa
+          - Dutse
+          - Gagarawa
+          - Gumel
+          - Gwaram
+          - Hadejia
+          - Kafin Hausa
+          - Kazaure
+          - Kiyawa
+          - Mallammaduri
+          - Ringim
+          - Samamiya
+          Plateau State:
+          - Amper
+          - Bukuru
+          - Dengi
+          - Jos
+          - Kwolla
+          - Langtang
+          - Pankshin
+          - Panyam
+          - Vom
+          - Yelwa
+          Niger State:
+          - Auna
+          - Babana
+          - Badeggi
+          - Baro
+          - Bokani
+          - Duku
+          - Ibeto
+          - Konkwesso
+          - Kontagora
+          - Kusheriki
+          - Kuta
+          - Lapai
+          - Minna
+          - New Shagunnu
+          - Suleja
+          - Tegina
+          - Ukata
+          - Wawa
+          - Zungeru
+          Edo State:
+          - Agenebode
+          - Auchi
+          - Benin City
+          - Ekpoma
+          - Igarra
+          - Illushi
+          - Siluko
+          - Ubiaja
+          - Uromi
+    Data8:
+      title: Data8
+      required:
+      - Kaduna State
+      - Borno State
+      - Bayelsa State
+      - Ogun State
+      - Osun State
+      - Ebonyi State
+      - Akwa Ibom State
+      - Yobe State
+      - Delta State
+      - Anambra State
+      - Cross River State
+      - Zamfara State
+      - Katsina State
+      - Federal Capital Territory
+      - Kano State
+      - Kwara State
+      - Adamawa State
+      - Enugu State
+      - Imo State
+      - Ondo State
+      - Ekiti State
+      - Taraba State
+      - Gombe State
+      - Kogi State
+      - Nasarawa State
+      - Kebbi State
+      - Sokoto State
+      - Benue State
+      - Oyo State
+      - Abia State
+      - Bauchi State
+      - Jigawa State
+      - Plateau State
+      - Niger State
+      - Edo State
+      type: object
+      properties:
+        Kaduna State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Borno State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Bayelsa State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Ogun State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Osun State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Ebonyi State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Akwa Ibom State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Yobe State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Delta State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Anambra State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Cross River State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Zamfara State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Katsina State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Federal Capital Territory:
+          type: array
+          items:
+            type: string
+          description: ''
+        Kano State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Kwara State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Adamawa State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Enugu State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Imo State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Ondo State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Ekiti State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Taraba State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Gombe State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Kogi State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Nasarawa State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Kebbi State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Sokoto State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Benue State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Oyo State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Abia State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Bauchi State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Jigawa State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Plateau State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Niger State:
+          type: array
+          items:
+            type: string
+          description: ''
+        Edo State:
+          type: array
+          items:
+            type: string
+          description: ''
+      examples:
+      - Kaduna State:
+        - Anchau
+        - Burumburum
+        - Dutsen Wai
+        - Hunkuyi
+        - Kachia
+        - Kaduna
+        - Kafanchan
+        - Kagoro
+        - Kajuru
+        - Kujama
+        - Lere
+        - Mando
+        - Saminaka
+        - Soba
+        - Sofo-Birnin-Gwari
+        - Zaria
+        Borno State:
+        - Bama
+        - Benisheikh
+        - Biu
+        - Bornu Yassu
+        - Damasak
+        - Damboa
+        - Dikwa
+        - Gamboru
+        - Gwoza
+        - Kukawa
+        - Magumeri
+        - Maiduguri
+        - Marte
+        - Miringa
+        - Monguno
+        - Ngala
+        - Shaffa
+        - Shani
+        - Tokombere
+        - Uba
+        - Wuyo
+        - Yajiwa
+        Bayelsa State:
+        - Amassoma
+        - Twon-Brass
+        - Yenagoa
+        Ogun State:
+        - Abeokuta
+        - Ado Odo
+        - Idi Iroko
+        - Ifo
+        - Ijebu-Ife
+        - Ijebu-Igbo
+        - Ijebu-Ode
+        - Ilaro
+        - Imeko
+        - Iperu
+        - Isara
+        - Owode
+        Osun State:
+        - Apomu
+        - Ejigbo
+        - Gbongan
+        - Ijebu-Jesa
+        - Ikire
+        - Ikirun
+        - Ila Orangun
+        - Ile-Ife
+        - Ilesa
+        - Ilobu
+        - Inisa
+        - Iwo
+        - Modakeke
+        - Oke Mesi
+        - Olupona
+        - Osogbo
+        - Otan Ayegbaju
+        - Oyan
+        Ebonyi State:
+        - Abakaliki
+        - Afikpo
+        - Effium
+        - Ezza-Ohu
+        - Isieke
+        Akwa Ibom State:
+        - Eket
+        - Esuk Oron
+        - Ikot Ekpene
+        - Itu
+        - Uyo
+        Yobe State:
+        - Damaturu
+        - Dankalwa
+        - Dapchi
+        - Daura
+        - Fika
+        - Gashua
+        - Geidam
+        - Goniri
+        - Gorgoram
+        - Gujba
+        - Gwio Kura
+        - Kumagunnam
+        - Lajere
+        - Machina
+        - Nguru
+        - Potiskum
+        Delta State:
+        - Abraka
+        - Agbor
+        - Asaba
+        - Bomadi
+        - Burutu
+        - Kwale
+        - Obiaruku
+        - Ogwashi-Uku
+        - Orerokpe
+        - Patani
+        - Sapele
+        - Ughelli
+        - Umunede
+        - Warri
+        Anambra State:
+        - Agulu
+        - Atani
+        - Awka
+        - Enugu-Ukwu
+        - Igbo-Ukwu
+        - Ihiala
+        - Nkpor
+        - Nnewi
+        - Onitsha
+        - Ozubulu
+        - Uga
+        - Uruobo-Okija
+        Cross River State:
+        - Akankpa
+        - Calabar
+        - Gakem
+        - Ikang
+        - Ugep
+        Zamfara State:
+        - Anka
+        - Dan Sadau
+        - Gummi
+        - Gusau
+        - Kaura Namoda
+        - Kwatarkwashi
+        - Maru
+        - Moriki
+        - Sauri
+        - Tsafe
+        Katsina State:
+        - Danja
+        - Dankama
+        - Daura
+        - Dutsin-Ma
+        - Funtua
+        - Gora
+        - Jibia
+        - Jikamshi
+        - Kankara
+        - Katsina
+        - Mashi
+        - Ruma
+        - Runka
+        - Wagini
+        Federal Capital Territory:
+        - Abuja
+        - Kuje
+        - Kwali
+        - Madala
+        Kano State:
+        - Dan Gora
+        - Gaya
+        - Kano
+        Kwara State:
+        - Ajasse Ipo
+        - Bode Saadu
+        - Gwasero
+        - Ilorin
+        - Jebba
+        - Kaiama
+        - Lafiagi
+        - Offa
+        - Okuta
+        - Omu-Aran
+        - Patigi
+        - Suya
+        - Yashikera
+        Adamawa State:
+        - Ganye
+        - Gombi
+        - Holma
+        - Jimeta
+        - Madagali
+        - Mayo-Belwa
+        - Mubi
+        - Ngurore
+        - Numan
+        - Toungo
+        - Yola
+        Enugu State:
+        - Adani
+        - Ake-Eze
+        - Aku
+        - Amagunze
+        - Awgu
+        - Eha Amufu
+        - Enugu
+        - Enugu-Ezike
+        - Ete
+        - Ikem
+        - Mberubu
+        - Nsukka
+        - Obolo-Eke (1)
+        - Opi
+        - Udi
+        Imo State:
+        - Iho
+        - Oguta
+        - Okigwe
+        - Orlu
+        - Orodo
+        - Owerri
+        Ondo State:
+        - Agbabu
+        - Akure
+        - Idanre
+        - Ifon
+        - Ilare
+        - Ode
+        - Ondo
+        - Ore
+        - Owo
+        Ekiti State:
+        - Ado-Ekiti
+        - Aramoko-Ekiti
+        - Efon-Alaaye
+        - Emure-Ekiti
+        - Ifaki
+        - Igbara-Odo
+        - Igede-Ekiti
+        - Ijero-Ekiti
+        - Ikere-Ekiti
+        - Ipoti
+        - Ise-Ekiti
+        - Oke Ila
+        - Omuo-Ekiti
+        Taraba State:
+        - Baissa
+        - Beli
+        - Gassol
+        - Gembu
+        - Ibi
+        - Jalingo
+        - Lau
+        - Mutum Biyu
+        - Riti
+        - Wukari
+        Gombe State:
+        - Akko
+        - Bara
+        - Billiri
+        - Dadiya
+        - Deba
+        - Dukku
+        - Garko
+        - Gombe
+        - Hinna
+        - Kafarati
+        - Kaltungo
+        - Kumo
+        - Nafada
+        - Pindiga
+        Kogi State:
+        - Abocho
+        - Adoru
+        - Ankpa
+        - Bugana
+        - Dekina
+        - Egbe
+        - Icheu
+        - Idah
+        - Isanlu-Itedoijowa
+        - Kabba
+        - Koton-Karfe
+        - Lokoja
+        - Ogaminana
+        - Ogurugu
+        - Okene
+        Nasarawa State:
+        - Buga
+        - Doma
+        - Keffi
+        - Lafia
+        - Nasarawa
+        - Wamba
+        Kebbi State:
+        - Argungu
+        - Bagudo
+        - Bena
+        - Bin Yauri
+        - Birnin Kebbi
+        - Dabai
+        - Dakingari
+        - Gulma
+        - Gwandu
+        - Jega
+        - Kamba
+        - Kangiwa
+        - Kende
+        - Mahuta
+        - Maiyama
+        - Shanga
+        - Wasagu
+        - Zuru
+        Sokoto State:
+        - Binji
+        - Dange
+        - Gandi
+        - Goronyo
+        - Gwadabawa
+        - Illela
+        - Rabah
+        - Sokoto
+        - Tambuwal
+        - Wurno
+        Benue State:
+        - Aliade
+        - Boju
+        - Igbor
+        - Makurdi
+        - Ochobo
+        - Otukpa
+        - Takum
+        - Ugbokpo
+        - Yandev
+        - Zaki Biam
+        Oyo State:
+        - Ago Are
+        - Alapa
+        - Fiditi
+        - Ibadan
+        - Igbeti
+        - Igbo-Ora
+        - Igboho
+        - Kisi
+        - Lalupon
+        - Ogbomoso
+        - Okeho
+        - Orita Eruwa
+        - Oyo
+        - Saki
+        Abia State:
+        - Aba
+        - Amaigbo
+        - Arochukwu
+        - Bende
+        - Ohafia-Ifigh
+        - Umuahia
+        Bauchi State:
+        - Azare
+        - Bauchi
+        - Boi
+        - Bununu
+        - Darazo
+        - Dass
+        - Dindima
+        - Disina
+        - Gabarin
+        - Gwaram
+        - Kari
+        - Lame
+        - Lere
+        - Madara
+        - Misau
+        - Sade
+        - Yamrat
+        - Yanda Bayo
+        - Yuli
+        - Zadawa
+        - Zalanga
+        Jigawa State:
+        - Babura
+        - Birnin Kudu
+        - Birniwa
+        - Dutse
+        - Gagarawa
+        - Gumel
+        - Gwaram
+        - Hadejia
+        - Kafin Hausa
+        - Kazaure
+        - Kiyawa
+        - Mallammaduri
+        - Ringim
+        - Samamiya
+        Plateau State:
+        - Amper
+        - Bukuru
+        - Dengi
+        - Jos
+        - Kwolla
+        - Langtang
+        - Pankshin
+        - Panyam
+        - Vom
+        - Yelwa
+        Niger State:
+        - Auna
+        - Babana
+        - Badeggi
+        - Baro
+        - Bokani
+        - Duku
+        - Ibeto
+        - Konkwesso
+        - Kontagora
+        - Kusheriki
+        - Kuta
+        - Lapai
+        - Minna
+        - New Shagunnu
+        - Suleja
+        - Tegina
+        - Ukata
+        - Wawa
+        - Zungeru
+        Edo State:
+        - Agenebode
+        - Auchi
+        - Benin City
+        - Ekpoma
+        - Igarra
+        - Illushi
+        - Siluko
+        - Ubiaja
+        - Uromi
+    GetCountryStateAndCity-FAILED1:
+      title: GetCountryStateAndCity-FAILED1
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data6'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T16:06:52.506771Z
+        statusCode: 404
+        data:
+          message: '{"error":true,"msg":"country not found"}'
+          error: Not Found
+    Data11:
+      title: Data11
+      required:
+      - message
+      - error
+      - errors
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+        errors:
+          $ref: '#/components/schemas/Errors4'
+      examples:
+      - message: Validation failed
+        error: Bad Request
+        errors:
+          states.country: Enter country
+    Errors4:
+      title: Errors4
+      required:
+      - states.country
+      type: object
+      properties:
+        states.country:
+          type: string
+      examples:
+      - states.country: Enter country
+    GetCountryStateAndCity-FAILED21:
+      title: GetCountryStateAndCity-FAILED21
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data11'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T16:08:28.704084Z
+        statusCode: 400
+        data:
+          message: Validation failed
+          error: Bad Request
+          errors:
+            states.country: Enter country
+    Data13:
+      title: Data13
+      required:
+      - message
+      - error
+      - errors
+      type: object
+      properties:
+        message:
+          type: string
+        error:
+          type: string
+        errors:
+          $ref: '#/components/schemas/Errors6'
+      examples:
+      - message: Validation failed
+        error: Bad Request
+        errors:
+          exchange.targetCurrency: Enter targetCurrency
+    Errors6:
+      title: Errors6
+      required:
+      - exchange.targetCurrency
+      type: object
+      properties:
+        exchange.targetCurrency:
+          type: string
+      examples:
+      - exchange.targetCurrency: Enter targetCurrency
+    GetCountryExchangeRate-FAILED1:
+      title: GetCountryExchangeRate-FAILED1
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data13'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T16:08:55.046632Z
+        statusCode: 400
+        data:
+          message: Validation failed
+          error: Bad Request
+          errors:
+            exchange.targetCurrency: Enter targetCurrency
+    GetCountryExchangeRate-FAILED21:
+      title: GetCountryExchangeRate-FAILED21
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data6'
+      examples:
+      - status: FAILED
+        timestamp: 2023-07-01T16:09:40.189558Z
+        statusCode: 404
+        data:
+          message: Country currency not supported
+          error: Not Found
+    GetCountryExchangeRate-SUCCESS:
+      title: GetCountryExchangeRate-SUCCESS
+      required:
+      - status
+      - timestamp
+      - statusCode
+      - data
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+        statusCode:
+          type: integer
+          contentEncoding: int32
+        data:
+          $ref: '#/components/schemas/Data17'
+      examples:
+      - status: SUCCESS
+        timestamp: 2023-07-01T16:10:16.586045Z
+        statusCode: 200
+        data:
+          sourceCurrency: JPY
+          exchangedAmount: 3276.42
+    Data17:
+      title: Data17
+      required:
+      - sourceCurrency
+      - exchangedAmount
+      type: object
+      properties:
+        sourceCurrency:
+          type: string
+        exchangedAmount:
+          type: number
+      examples:
+      - sourceCurrency: JPY
+        exchangedAmount: 3276.42
+tags:
+- name: Misc
+  description: ''

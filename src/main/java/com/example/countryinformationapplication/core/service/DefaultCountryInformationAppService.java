@@ -60,7 +60,7 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
     @Override
     public Map<String, Object> topNumberOfCitiesBasedOnPopulation(int size) {
 
-        io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfNigeriaDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("Nigeria", size);
+        io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfNigeriaDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("Ghana", size);
         io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfItalyDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("Italy", size);
         io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfNewZealandDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("New Zealand", size);
 
@@ -71,7 +71,7 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
         return Observable.zip(populationOfCityOfNigeriaDataObservable, populationOfCityOfItalyDataObservable, populationOfCityOfNewZealandDataObservable,
                         (populationOfCityOfNigeriaData, populationOfCityOfItalyData, populationOfCityOfNewZealandData) -> {
                             Map<String, Object> map = new HashMap<>();
-                            map.put("Nigeria", populationOfCityOfNigeriaData);
+                            map.put("Ghana", populationOfCityOfNigeriaData);
                             map.put("Italy", populationOfCityOfItalyData);
                             map.put("NewZealand", populationOfCityOfNewZealandData);
                             return map;
