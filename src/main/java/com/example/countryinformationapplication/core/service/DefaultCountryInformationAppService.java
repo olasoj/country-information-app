@@ -19,29 +19,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 @Service
 public class DefaultCountryInformationAppService implements CountryInformationAppService {
 
-    private static final ExecutorService EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM;
-    private static final Scheduler RX_SCHEDULER_FOR_KYC_LIST_ITEM;
+    private static final ExecutorService EXECUTOR_SERVICE;
+    private static final Scheduler RX_SCHEDULER;
 
     static {
-        int noOfCores = Math.min(Runtime.getRuntime().availableProcessors() * 3, 26);
-        EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM = new ThreadPoolExecutor(
+        int noOfCores = Runtime.getRuntime().availableProcessors();
+        EXECUTOR_SERVICE = new ThreadPoolExecutor(
                 noOfCores,
-                noOfCores + 10,
+                1 + noOfCores,
                 50,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(40),
+                new LinkedBlockingQueue<>(400),
                 new ThreadPoolExecutor.CallerRunsPolicy()
         );
 
-        RX_SCHEDULER_FOR_KYC_LIST_ITEM = Schedulers.from(EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM);
+        RX_SCHEDULER = Schedulers.from(EXECUTOR_SERVICE);
     }
 
     private final CountryInformationAppOutboundProxy countryInformationAppOutboundProxy;
@@ -52,9 +49,9 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
 
     @PreDestroy
     public void destroy() {
-        EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM.shutdown();
-        if (!EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM.isShutdown())
-            EXECUTOR_SERVICE_FOR_KYC_LIST_ITEM.shutdownNow();
+        EXECUTOR_SERVICE.shutdown();
+        if (!EXECUTOR_SERVICE.isShutdown())
+            EXECUTOR_SERVICE.shutdownNow();
     }
 
     @Override
@@ -64,9 +61,9 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
         io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfItalyDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("Italy", size);
         io.reactivex.rxjava3.functions.Supplier<List<PopulationOfCityOfCountryData>> populationOfCityOfNewZealandDataSupplier = () -> countryInformationAppOutboundProxy.populationFilter("New Zealand", size);
 
-        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfNigeriaDataObservable = Observable.fromSupplier(populationOfCityOfNigeriaDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
-        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfItalyDataObservable = Observable.fromSupplier(populationOfCityOfItalyDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
-        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfNewZealandDataObservable = Observable.fromSupplier(populationOfCityOfNewZealandDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
+        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfNigeriaDataObservable = Observable.fromSupplier(populationOfCityOfNigeriaDataSupplier).subscribeOn(RX_SCHEDULER);
+        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfItalyDataObservable = Observable.fromSupplier(populationOfCityOfItalyDataSupplier).subscribeOn(RX_SCHEDULER);
+        Observable<List<PopulationOfCityOfCountryData>> populationOfCityOfNewZealandDataObservable = Observable.fromSupplier(populationOfCityOfNewZealandDataSupplier).subscribeOn(RX_SCHEDULER);
 
         return Observable.zip(populationOfCityOfNigeriaDataObservable, populationOfCityOfItalyDataObservable, populationOfCityOfNewZealandDataObservable,
                         (populationOfCityOfNigeriaData, populationOfCityOfItalyData, populationOfCityOfNewZealandData) -> {
@@ -90,10 +87,10 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
         io.reactivex.rxjava3.functions.Supplier<LocationOfCountry> locationOfCountrySupplier = () -> countryInformationAppOutboundProxy.locationOfCountry(country);
         io.reactivex.rxjava3.functions.Supplier<CurrencyOfCountry> currencyOfCountryDataSupplier = () -> countryInformationAppOutboundProxy.currencyOfCountry(country);
 
-        Observable<PopulationOfCountryData> populationOfCountryDataObservable = Observable.fromSupplier(populationOfCountryDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
-        Observable<CapitalOfCountryData> capitalOfCountryDataObservable = Observable.fromSupplier(capitalOfCountryDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
-        Observable<LocationOfCountry> locationOfCountryObservable = Observable.fromSupplier(locationOfCountrySupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
-        Observable<CurrencyOfCountry> currencyOfCountryObservable = Observable.fromSupplier(currencyOfCountryDataSupplier).subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM);
+        Observable<PopulationOfCountryData> populationOfCountryDataObservable = Observable.fromSupplier(populationOfCountryDataSupplier).subscribeOn(RX_SCHEDULER);
+        Observable<CapitalOfCountryData> capitalOfCountryDataObservable = Observable.fromSupplier(capitalOfCountryDataSupplier).subscribeOn(RX_SCHEDULER);
+        Observable<LocationOfCountry> locationOfCountryObservable = Observable.fromSupplier(locationOfCountrySupplier).subscribeOn(RX_SCHEDULER);
+        Observable<CurrencyOfCountry> currencyOfCountryObservable = Observable.fromSupplier(currencyOfCountryDataSupplier).subscribeOn(RX_SCHEDULER);
 
         return Observable.zip(populationOfCountryDataObservable, capitalOfCountryDataObservable, locationOfCountryObservable, currencyOfCountryObservable,
                         (populationOfCountryData, capitalOfCountryData, locationOfCountry, currencyOfCountry) -> {
@@ -123,7 +120,7 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
                 .flatMap(e ->
 
                         Observable.just(e)
-                                .subscribeOn(RX_SCHEDULER_FOR_KYC_LIST_ITEM)
+                                .subscribeOn(RX_SCHEDULER)
                                 .map(ev -> {
                                     try{
                                         String stateName = ev.getName();
