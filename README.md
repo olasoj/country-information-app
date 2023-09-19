@@ -46,7 +46,7 @@ Go to the project directory
 Start the country-information-app
 
 ```bash
-    mvn ./gradlew bootRun
+    ./gradlew bootRun
 ```
 
 ## Documentation

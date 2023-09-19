@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=1",
+					"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,68 +29,12 @@
 					"query": [
 						{
 							"key": "querySize",
-							"value": "1"
+							"value": "10"
 						}
 					]
 				}
 			},
 			"response": [
-				{
-					"name": "GetCountryCitiesPopulation - SUCCESS",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"country",
-								"population",
-								"city",
-								"filter"
-							],
-							"query": [
-								{
-									"key": "querySize",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 01 Jul 2023 15:47:50 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T15:47:50.338199Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Italy\": [\n            {\n                \"city\": \"Ancona\",\n                \"country\": \"Italy\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2012\",\n                        \"value\": \"100404\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Provisional figure\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"100497\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"103017\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Provisional figure\"\n                    },\n                    {\n                        \"year\": \"2010\",\n                        \"value\": \"102759\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2009\",\n                        \"value\": \"102284\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2008\",\n                        \"value\": \"101606\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2007\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2006\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2005\",\n                        \"value\": \"101862\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2004\",\n                        \"value\": \"101671\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2003\",\n                        \"value\": \"101545\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2001\",\n                        \"value\": \"100507\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ],\n        \"Ghana\": [\n            {\n                \"city\": \"Sekondi\",\n                \"country\": \"Ghana\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2000\",\n                        \"value\": \"114157\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ],\n        \"NewZealand\": [\n            {\n                \"city\": \"Lower Hutt\",\n                \"country\": \"New Zealand\",\n                \"populationCounts\": [\n                    {\n                        \"year\": \"2013\",\n                        \"value\": \"102900\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2012\",\n                        \"value\": \"102700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2011\",\n                        \"value\": \"103000\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2010\",\n                        \"value\": \"102700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2009\",\n                        \"value\": \"102100\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2008\",\n                        \"value\": \"101700\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2006\",\n                        \"value\": \"101300\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    },\n                    {\n                        \"year\": \"2005\",\n                        \"value\": \"100500\",\n                        \"sex\": \"Both Sexes\",\n                        \"reliabilty\": \"Final figure, complete\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
-				},
 				{
 					"name": "GetCountryCitiesPopulation - FAILED",
 					"originalRequest": {
@@ -142,6 +86,62 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T15:48:37.862244Z\",\n    \"statusCode\": 400,\n    \"data\": {\n        \"message\": \"Validation failed\",\n        \"error\": \"Bad Request\",\n        \"errors\": {\n            \"filter.querySize\": \"must be greater than or equal to 1\"\n        }\n    }\n}"
+				},
+				{
+					"name": "GetCountryCitiesPopulation - SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/population/city/filter?querySize=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"population",
+								"city",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "querySize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Sep 2023 13:50:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-09-19T13:50:44.888871Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Result\": [\n            {\n                \"year\": 2011,\n                \"value\": 2771584.5,\n                \"country\": \"Italy\",\n                \"city\": \"ROMA\"\n            }\n        ]\n    }\n}"
 				}
 			]
 		},
@@ -172,60 +172,6 @@
 				}
 			},
 			"response": [
-				{
-					"name": "GetCountryInformation - SUCCESS",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/api/v1/country/information?country=Nigeria",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"country",
-								"information"
-							],
-							"query": [
-								{
-									"key": "country",
-									"value": "Nigeria"
-								}
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 01 Jul 2023 15:49:05 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-07-01T15:49:05.148818Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Currency\": {\n            \"name\": \"Nigeria\",\n            \"currency\": \"NGN\",\n            \"iso2\": \"NG\",\n            \"iso3\": \"NGA\"\n        },\n        \"Population\": {\n            \"country\": \"Nigeria\",\n            \"code\": \"NGA\",\n            \"iso3\": \"NGA\",\n            \"populationCounts\": [\n                {\n                    \"year\": \"1960\",\n                    \"value\": \"45138458\"\n                },\n                {\n                    \"year\": \"1961\",\n                    \"value\": \"46063563\"\n                },\n                {\n                    \"year\": \"1962\",\n                    \"value\": \"47029822\"\n                },\n                {\n                    \"year\": \"1963\",\n                    \"value\": \"48032934\"\n                },\n                {\n                    \"year\": \"1964\",\n                    \"value\": \"49066760\"\n                },\n                {\n                    \"year\": \"1965\",\n                    \"value\": \"50127921\"\n                },\n                {\n                    \"year\": \"1966\",\n                    \"value\": \"51217973\"\n                },\n                {\n                    \"year\": \"1967\",\n                    \"value\": \"52342233\"\n                },\n                {\n                    \"year\": \"1968\",\n                    \"value\": \"53506196\"\n                },\n                {\n                    \"year\": \"1969\",\n                    \"value\": \"54717039\"\n                },\n                {\n                    \"year\": \"1970\",\n                    \"value\": \"55982144\"\n                },\n                {\n                    \"year\": \"1971\",\n                    \"value\": \"57296983\"\n                },\n                {\n                    \"year\": \"1972\",\n                    \"value\": \"58665808\"\n                },\n                {\n                    \"year\": \"1973\",\n                    \"value\": \"60114625\"\n                },\n                {\n                    \"year\": \"1974\",\n                    \"value\": \"61677177\"\n                },\n                {\n                    \"year\": \"1975\",\n                    \"value\": \"63374298\"\n                },\n                {\n                    \"year\": \"1976\",\n                    \"value\": \"65221378\"\n                },\n                {\n                    \"year\": \"1977\",\n                    \"value\": \"67203128\"\n                },\n                {\n                    \"year\": \"1978\",\n                    \"value\": \"69271917\"\n                },\n                {\n                    \"year\": \"1979\",\n                    \"value\": \"71361131\"\n                },\n                {\n                    \"year\": \"1980\",\n                    \"value\": \"73423633\"\n                },\n                {\n                    \"year\": \"1981\",\n                    \"value\": \"75440502\"\n                },\n                {\n                    \"year\": \"1982\",\n                    \"value\": \"77427546\"\n                },\n                {\n                    \"year\": \"1983\",\n                    \"value\": \"79414840\"\n                },\n                {\n                    \"year\": \"1984\",\n                    \"value\": \"81448755\"\n                },\n                {\n                    \"year\": \"1985\",\n                    \"value\": \"83562785\"\n                },\n                {\n                    \"year\": \"1986\",\n                    \"value\": \"85766399\"\n                },\n                {\n                    \"year\": \"1987\",\n                    \"value\": \"88048032\"\n                },\n                {\n                    \"year\": \"1988\",\n                    \"value\": \"90395271\"\n                },\n                {\n                    \"year\": \"1989\",\n                    \"value\": \"92788027\"\n                },\n                {\n                    \"year\": \"1990\",\n                    \"value\": \"95212450\"\n                },\n                {\n                    \"year\": \"1991\",\n                    \"value\": \"97667632\"\n                },\n                {\n                    \"year\": \"1992\",\n                    \"value\": \"100161710\"\n                },\n                {\n                    \"year\": \"1993\",\n                    \"value\": \"102700753\"\n                },\n                {\n                    \"year\": \"1994\",\n                    \"value\": \"105293700\"\n                },\n                {\n                    \"year\": \"1995\",\n                    \"value\": \"107948335\"\n                },\n                {\n                    \"year\": \"1996\",\n                    \"value\": \"110668794\"\n                },\n                {\n                    \"year\": \"1997\",\n                    \"value\": \"113457663\"\n                },\n                {\n                    \"year\": \"1998\",\n                    \"value\": \"116319759\"\n                },\n                {\n                    \"year\": \"1999\",\n                    \"value\": \"119260063\"\n                },\n                {\n                    \"year\": \"2000\",\n                    \"value\": \"122283850\"\n                },\n                {\n                    \"year\": \"2001\",\n                    \"value\": \"125394046\"\n                },\n                {\n                    \"year\": \"2002\",\n                    \"value\": \"128596076\"\n                },\n                {\n                    \"year\": \"2003\",\n                    \"value\": \"131900631\"\n                },\n                {\n                    \"year\": \"2004\",\n                    \"value\": \"135320422\"\n                },\n                {\n                    \"year\": \"2005\",\n                    \"value\": \"138865016\"\n                },\n                {\n                    \"year\": \"2006\",\n                    \"value\": \"142538308\"\n                },\n                {\n                    \"year\": \"2007\",\n                    \"value\": \"146339977\"\n                },\n                {\n                    \"year\": \"2008\",\n                    \"value\": \"150269623\"\n                },\n                {\n                    \"year\": \"2009\",\n                    \"value\": \"154324933\"\n                },\n                {\n                    \"year\": \"2010\",\n                    \"value\": \"158503197\"\n                },\n                {\n                    \"year\": \"2011\",\n                    \"value\": \"162805071\"\n                },\n                {\n                    \"year\": \"2012\",\n                    \"value\": \"167228767\"\n                },\n                {\n                    \"year\": \"2013\",\n                    \"value\": \"171765769\"\n                },\n                {\n                    \"year\": \"2014\",\n                    \"value\": \"176404902\"\n                },\n                {\n                    \"year\": \"2015\",\n                    \"value\": \"181137448\"\n                },\n                {\n                    \"year\": \"2016\",\n                    \"value\": \"185960289\"\n                },\n                {\n                    \"year\": \"2017\",\n                    \"value\": \"190873311\"\n                },\n                {\n                    \"year\": \"2018\",\n                    \"value\": \"195874740\"\n                }\n            ]\n        },\n        \"Capital\": {\n            \"name\": \"Nigeria\",\n            \"capital\": \"Abuja\",\n            \"iso2\": \"NG\",\n            \"iso3\": \"NGA\"\n        },\n        \"Location\": {\n            \"name\": \"Nigeria\",\n            \"iso2\": \"NG\",\n            \"long\": 8,\n            \"lat\": 10\n        }\n    }\n}"
-				},
 				{
 					"name": "GetCountryInformation - FAILED",
 					"originalRequest": {
@@ -329,6 +275,60 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": \"FAILED\",\n    \"timestamp\": \"2023-07-01T16:03:46.500257Z\",\n    \"statusCode\": 404,\n    \"data\": {\n        \"message\": \"{\\\"error\\\":true,\\\"msg\\\":\\\"country data not found\\\"}\",\n        \"error\": \"Not Found\"\n    }\n}"
+				},
+				{
+					"name": "GetCountryInformation - SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/country/information?country=Nigeria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"country",
+								"information"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Nigeria"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Sep 2023 13:45:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"timestamp\": \"2023-09-19T13:45:58.677144Z\",\n    \"statusCode\": 200,\n    \"data\": {\n        \"Result\": {\n            \"population\": {\n                \"year\": 2018,\n                \"value\": 195874740,\n                \"country\": \"Nigeria\",\n                \"city\": \"N/A\"\n            },\n            \"capitalCity\": \"Abuja\",\n            \"location\": {\n                \"longitude\": 8,\n                \"latitude\": 10\n            },\n            \"currency\": \"NGN\",\n            \"iso2\": \"NG\",\n            \"iso3\": \"NGA\"\n        }\n    }\n}"
 				}
 			]
 		},
@@ -338,7 +338,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=Nigeria",
+					"raw": "http://localhost:8000/api/v1/country/state-with-cities?country=Japan",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -353,7 +353,7 @@
 					"query": [
 						{
 							"key": "country",
-							"value": "Nigeria"
+							"value": "Japan"
 						}
 					]
 				}
