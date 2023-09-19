@@ -10,6 +10,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
+import static java.util.Objects.isNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -20,7 +25,13 @@ import java.io.Serializable;
         "reliabilty"
 })
 @Generated("jsonschema2pojo")
-public class PopulationCount implements Serializable {
+public class PopulationCount implements Serializable, Comparable<PopulationCount> {
+
+    public static final Comparator<PopulationCount> POPULATION_COUNT_NATURAL_ORDER = Comparator.naturalOrder();
+
+    public static final Comparator<PopulationCount> POPULATION_COUNT_BY_YEAR = (o1, o2) -> {
+        return Integer.parseInt(o1.getYear()) - Integer.parseInt(o2.getYear());
+    };
 
     private final static long serialVersionUID = 4749335940891934440L;
     @JsonProperty("year")
@@ -31,6 +42,20 @@ public class PopulationCount implements Serializable {
     private String sex;
     @JsonProperty("reliabilty")
     private String reliabilty;
+
+    public static Optional<PopulationCount> getMaxPopulationCount(List<PopulationCount> populationCounts) {
+        return isNull(populationCounts) ? Optional.empty() : populationCounts.stream()
+                .sorted(POPULATION_COUNT_NATURAL_ORDER.reversed())
+                .limit(1)
+                .findFirst();
+    }
+
+    public static Optional<PopulationCount> getMaxPopulationCountByYear(List<PopulationCount> populationCounts) {
+        return isNull(populationCounts) ? Optional.empty() : populationCounts.stream()
+                .sorted(POPULATION_COUNT_BY_YEAR.reversed())
+                .limit(1)
+                .findFirst();
+    }
 
     @JsonProperty("year")
     public String getYear() {
@@ -101,5 +126,17 @@ public class PopulationCount implements Serializable {
                 .append("sex", sex)
                 .append("reliabilty", reliabilty)
                 .toString();
+    }
+
+    @Override
+    public int compareTo(PopulationCount otherPopulationCount) {
+        double populationCount1Value = Double.parseDouble(this.getValue());
+        double populationCount2Value = Double.parseDouble(otherPopulationCount.getValue());
+
+        if (populationCount1Value > populationCount2Value)
+            return 1;
+        else if (populationCount1Value < populationCount2Value)
+            return -1;
+        else return Integer.parseInt(this.getYear()) > Integer.parseInt(otherPopulationCount.getYear()) ? 1 : -1;
     }
 }

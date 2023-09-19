@@ -1,7 +1,10 @@
 package com.example.countryinformationapplication.core.service;
 
 import com.example.countryinformationapplication.core.adapter.outbound.rest.CountryInformationAppOutboundProxy;
+import com.example.countryinformationapplication.core.model.internal.CountryInformation;
 import com.example.countryinformationapplication.core.model.internal.ExchangeRate;
+import com.example.countryinformationapplication.core.model.internal.LocationOfCountryInternal;
+import com.example.countryinformationapplication.core.model.internal.PopulationDataInternal;
 import com.example.countryinformationapplication.core.model.outbound.*;
 import com.example.countryinformationapplication.util.JacksonUtil;
 import io.reactivex.rxjava3.core.Observable;
@@ -15,17 +18,20 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.annotation.PreDestroy;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.*;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class DefaultCountryInformationAppService implements CountryInformationAppService {
 
     private static final ExecutorService EXECUTOR_SERVICE;
     private static final Scheduler RX_SCHEDULER;
+    private static final int TIMEOUT = 20;
 
     static {
         int noOfCores = Runtime.getRuntime().availableProcessors();
@@ -67,15 +73,23 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
 
         return Observable.zip(populationOfCityOfNigeriaDataObservable, populationOfCityOfItalyDataObservable, populationOfCityOfNewZealandDataObservable,
                         (populationOfCityOfNigeriaData, populationOfCityOfItalyData, populationOfCityOfNewZealandData) -> {
+
+                            //List  of cities
+                            List<PopulationDataInternal> populationOfCityOfCountryDataAggregate =
+                                    Stream.of(populationOfCityOfNigeriaData, populationOfCityOfItalyData, populationOfCityOfNewZealandData)
+                                            .flatMap(Collection::stream)
+                                            .sorted(PopulationOfCityOfCountryData.populationOfCityOfCountryDataComparator())
+                                            .limit(size)
+                                            .map(PopulationDataInternal::assemble)
+                                            .collect(Collectors.toList());
+
                             Map<String, Object> map = new HashMap<>();
-                            map.put("Ghana", populationOfCityOfNigeriaData);
-                            map.put("Italy", populationOfCityOfItalyData);
-                            map.put("NewZealand", populationOfCityOfNewZealandData);
+                            map.put("Result", populationOfCityOfCountryDataAggregate);
                             return map;
                         }
                 )
                 .doOnNext(JacksonUtil::logReqRes)
-                .timeout(30, TimeUnit.SECONDS)
+                .timeout(TIMEOUT, TimeUnit.SECONDS)
                 .blockingSingle();
     }
 
@@ -94,16 +108,23 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
 
         return Observable.zip(populationOfCountryDataObservable, capitalOfCountryDataObservable, locationOfCountryObservable, currencyOfCountryObservable,
                         (populationOfCountryData, capitalOfCountryData, locationOfCountry, currencyOfCountry) -> {
+
+                            CountryInformation countryInformation = new CountryInformation(
+                                    PopulationDataInternal.assembleByMaxYear(populationOfCountryData)
+                                    , capitalOfCountryData.getCapital()
+                                    , new LocationOfCountryInternal(locationOfCountry.getLong(), locationOfCountry.getLat())
+                                    , Currency.getInstance(currencyOfCountry.getCurrency())
+                                    , currencyOfCountry.getIso2()
+                                    , currencyOfCountry.getIso3()
+                            );
+
                             Map<String, Object> map = new HashMap<>();
-                            map.put("Population", populationOfCountryData);
-                            map.put("Capital", capitalOfCountryData);
-                            map.put("Location", locationOfCountry);
-                            map.put("Currency", currencyOfCountry);
+                            map.put("Result", countryInformation);
                             return map;
                         }
                 )
                 .doOnNext(JacksonUtil::logReqRes)
-                .timeout(30, TimeUnit.SECONDS)
+                .timeout(TIMEOUT, TimeUnit.SECONDS)
                 .blockingSingle();
     }
 
@@ -122,17 +143,18 @@ public class DefaultCountryInformationAppService implements CountryInformationAp
                         Observable.just(e)
                                 .subscribeOn(RX_SCHEDULER)
                                 .map(ev -> {
-                                    try{
+                                    try {
                                         String stateName = ev.getName();
                                         map.put(stateName, countryInformationAppOutboundProxy.citiesOfState(country, stateName.trim()));
                                         return stateName;
-                                    } catch (Exception ignored){}
+                                    } catch (Exception ignored) {
+                                    }
                                     return "";
                                 })
 
                 )
                 .doOnNext(JacksonUtil::logReqRes)
-                .timeout(30, TimeUnit.SECONDS)
+                .timeout(TIMEOUT, TimeUnit.SECONDS)
                 .blockingSubscribe();
 
         JacksonUtil.logReqRes(map);

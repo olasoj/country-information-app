@@ -20,6 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.Serializable;
 import java.net.URI;
+import java.time.Duration;
+import java.time.Instant;
 
 @Service
 public class RestTemplateHttpLibrary implements HttpLibrary {
@@ -38,7 +40,14 @@ public class RestTemplateHttpLibrary implements HttpLibrary {
     @Override
     public <T extends Serializable, U> ResponseProperties<U> exchange(RequestProperties<T> build, Class<U> responseClassType) {
         try {
+
+            Instant start = Instant.now();
+
             ResponseEntity<String> responseEntity = exchange(build);
+            Instant end = Instant.now();
+            Duration durationElapsed = Duration.between(start, end);
+            LOGGER.info("Request took {} ", durationElapsed.toMillis());
+
             return parseResponse(responseClassType, responseEntity);
         } catch (RestClientResponseException restClientResponseException) {
             ResponseProperties<String> responseProperties = toResponseProperties(restClientResponseException);

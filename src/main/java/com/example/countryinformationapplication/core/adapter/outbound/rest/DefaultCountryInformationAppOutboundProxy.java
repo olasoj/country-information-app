@@ -19,7 +19,7 @@ import java.net.URI;
 import java.util.List;
 
 @Service
-public class DefaultCountryInformationAppOutboundProxy implements CountryInformationAppOutboundProxy{
+public class DefaultCountryInformationAppOutboundProxy implements CountryInformationAppOutboundProxy {
     private static final String BASE_URL = "https://countriesnow.space/api/v0.1/countries";
     private static final String COUNTRY_QUERY_KEY = "country";
     private final RestService restService;
@@ -38,7 +38,7 @@ public class DefaultCountryInformationAppOutboundProxy implements CountryInforma
         URI uri = UriComponentsBuilder.fromUriString(BASE_URL + "/population/cities/filter/q")
                 .queryParam(COUNTRY_QUERY_KEY, country)
                 .queryParam("orderBy", "population")
-                .queryParam("order", "desc")
+                .queryParam("order", SortDirection.DESC.getName())
                 .queryParam("limit", size)
                 .build().toUri();
 
@@ -195,6 +195,21 @@ public class DefaultCountryInformationAppOutboundProxy implements CountryInforma
 
         return objectMapper.convertValue(responseProperties.getBody(), new TypeReference<>() {
         });
+    }
+
+    enum SortDirection {
+        ASC("asc"),
+        DESC("dsc");
+
+        private final String name;
+
+        SortDirection(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
 }

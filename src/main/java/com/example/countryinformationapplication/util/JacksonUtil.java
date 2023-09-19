@@ -37,8 +37,11 @@ public class JacksonUtil {
         }
     }
 
-    public static  <T> void logReqRes(T reqResBody) {
-        String prettyString = toString(reqResBody);
-        LOGGER.info(prettyString);
+    public static <T> void logReqRes(T reqResBody) {
+
+        if (LOGGER.isDebugEnabled()) {
+            String prettyString = toString(reqResBody);
+            LOGGER.debug(prettyString);
+        }
     }
 }

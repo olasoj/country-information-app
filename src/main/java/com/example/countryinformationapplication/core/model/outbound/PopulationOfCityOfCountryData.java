@@ -9,7 +9,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.annotation.Generated;
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
@@ -89,5 +91,27 @@ public class PopulationOfCityOfCountryData implements Serializable {
                 .append("country", country)
                 .append("populationCounts", populationCounts)
                 .toString();
+    }
+
+    public static Comparator<PopulationOfCityOfCountryData> populationOfCityOfCountryDataComparator() {
+        return (o1, o2) -> {
+            List<PopulationCount> o1PopulationCounts = o1.getPopulationCounts();
+            List<PopulationCount> o2PopulationCounts = o2.getPopulationCounts();
+
+            Optional<PopulationCount> maxPopulationCount = PopulationCount.getMaxPopulationCount(o1PopulationCounts);
+            Optional<PopulationCount> maxPopulationCount2 = PopulationCount.getMaxPopulationCount(o2PopulationCounts);
+
+            if (maxPopulationCount.isEmpty() && maxPopulationCount2.isEmpty()) return 0;
+            if (maxPopulationCount.isPresent() && maxPopulationCount2.isEmpty()) return 1;
+            if (maxPopulationCount.isEmpty()) return -1;
+
+            PopulationCount populationCount = maxPopulationCount.get();
+            PopulationCount populationCount2 = maxPopulationCount2.get();
+
+            return (populationCount.compareTo(populationCount2)) == 0 ?
+                    0 :
+                    (populationCount.compareTo(populationCount2)) * -1;
+
+        };
     }
 }
